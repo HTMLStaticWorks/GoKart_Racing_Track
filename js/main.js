@@ -49,6 +49,25 @@ function initGlobalControls() {
         a.classList.remove('active');
       }
     });
+
+    // Also highlight parent if a dropdown child is active
+    document.querySelectorAll('.nav-link-item.dropdown').forEach(dropdown => {
+      const activeChild = dropdown.querySelector('.dropdown-menu a.active');
+      const parentLink = dropdown.querySelector('> a');
+      if (parentLink) {
+        if (activeChild) {
+          parentLink.classList.add('active');
+        } else {
+          // Keep active if parent link itself matches page
+          const parentHref = parentLink.getAttribute('href');
+          if (parentHref === page || (page === 'index.html' && parentHref === './') || (page === '' && parentHref === './')) {
+            parentLink.classList.add('active');
+          } else {
+            parentLink.classList.remove('active');
+          }
+        }
+      }
+    });
   };
   
   updateActiveNavLink();

@@ -201,6 +201,89 @@ header.shrink {
   width: 100%;
 }
 
+/* Navigation Dropdown Menu */
+.nav-link-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--border-radius-sm);
+  padding: 8px 0;
+  min-width: 130px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1010;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: transparent;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.dropdown-menu a::after {
+  display: none !important; /* Remove animated underline for dropdown sub-items */
+}
+
+.dropdown-menu a:hover, .dropdown-menu a.active {
+  color: var(--color-text);
+  background: rgba(225, 6, 0, 0.15);
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.nav-link-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* RTL direction overrides for dropdown positioning */
+body[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%) translateY(10px);
+}
+
+body[dir="rtl"] .nav-link-item.dropdown:hover .dropdown-menu {
+  transform: translateX(50%) translateY(0);
+}
+
+body[dir="rtl"] .dropdown-menu a:hover, body[dir="rtl"] .dropdown-menu a.active {
+  box-shadow: inset -3px 0 0 var(--color-primary);
+}
+
 .nav-controls {
   display: flex;
   align-items: center;
