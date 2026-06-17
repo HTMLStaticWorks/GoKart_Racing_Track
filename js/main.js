@@ -15,36 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* 1. LENIS SMOOTH SCROLLING */
-let lenisInstance = null;
 function initSmoothScroll() {
-  // Load Lenis from window if available (loaded via CDN in HTML)
-  if (typeof Lenis !== 'undefined') {
-    lenisInstance = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    // Expose globally
-    window.lenisInstance = lenisInstance;
-
-    function raf(time) {
-      lenisInstance.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Sync GSAP ScrollTrigger if GSAP is loaded
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      lenisInstance.on('scroll', ScrollTrigger.update);
-    }
-  }
+  // Deactivated Lenis to restore native normal scrolling mode across all pages
+  window.lenisInstance = null;
 }
 
 /* 2. CUSTOM CURSOR REMOVED */
