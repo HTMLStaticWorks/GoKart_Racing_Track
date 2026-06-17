@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-Kart Racing Track | Motorsport Services</title>
+  <meta name="description" content="Explore our high-performance racing services including arrive & drive practices, corporate team building, and professional pit coaching.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- GSAP & Plugins (ScrollTrigger) CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js Canvas for 3D Background Grid & Splines -->
+  <canvas id="three-bg-canvas"></canvas>
+
+  <!-- Sticky Glassmorphism Navbar -->
+  <header>
+    <div class="navbar-container">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24">
+          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+        </svg>
+        <span class="logo-text">GO-KART RACING</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-link-item"><a href="index.html">Home 1</a></li>
+          <li class="nav-link-item"><a href="home2.html">Home 2</a></li>
+          <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
+          <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
+          <li class="nav-link-item"><a href="league.html">Racing League</a></li>
+          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
+          <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
+          <li class="nav-link-item"><a href="about.html">About Us</a></li>
+          <li class="nav-link-item"><a href="services.html" class="active">Services</a></li>
+          <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="btn-control" title="Toggle Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+        </button>
+        <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
+          RTL
+        </button>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Race</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page transitions overlay -->
+  <div id="transition-overlay">
+    <div id="transition-overlay-content">CALIBRATING SYSTEM...</div>
+  </div>
+
+  <!-- Primary AJAX Content Container -->
+  <main id="app-container">
+
+    <!-- 1. SERVICES HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-media">
+        <img src="assets/images/vip_lounge.png" alt="Motorsport Services Lounge">
+      </div>
+      <div class="hero-content">
+        <div class="font-telemetry" style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Motorsport Solutions</div>
+        <h1 class="hero-title" style="font-size: 3.5rem;">PROFESSIONAL <br><span>RACING SERVICES</span></h1>
+        <p class="hero-tagline">Access our complete grid services: open arrive & drive track practices, custom corporate rentals, telemetry Recaps, and pit lane coaching.</p>
+        <a href="#arrive-drive" class="btn-cta btn-primary">Check Services</a>
+      </div>
+    </section>
+
+    <!-- 2. RACING SESSIONS (ARRIVE & DRIVE) -->
+    <section class="section-container" id="arrive-drive">
+      <h2 class="section-title">ARRIVE & DRIVE PRACTICE RUNS</h2>
+      <p class="section-subtitle">No prior booking required. Walk in, select a kart class, and establish your lap records.</p>
+      
+      <div class="grid-4col">
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Single Run</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Apex Sprint</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">One 10-minute high-speed practice session on the Indoor Arena circuit. $25 total.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Double Run</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Apex Endurance</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Two 10-minute sessions with a 15-minute cool-down interval. $45 total.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Telemetry Bundle</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Pro Telemetry</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Three sessions including transponder logs detailing corner G-forces. $65 total.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Double Seats</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Double Kart Run</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">One 10-minute run in our double-seat karts for adults and kids. $35 total.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GROUP & CORPORATE EVENTS -->
+    <section class="section-container" id="corporate-rentals" style="background: rgba(10, 10, 10, 0.5);">
+      <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1.2; min-width: 320px;">
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase;">Private Rentals</span>
+          <h2 class="section-title section-title-start">TRACK LEASES & HOSPITALITY</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">Rent out our entire racing facility for custom events. Perfect for corporate incentives, product launches, and grand celebrations. Our team structures custom grids, handles qualifying stages, and manages flag operations, while guests can enjoy catered dining inside the VIP lounges.</p>
+          <a href="packages.html" class="btn-cta btn-primary">Browse Event Packages</a>
+        </div>
+        <div style="flex: 0.8; min-width: 280px;">
+          <img src="assets/images/corporate_event.png" alt="Corporate private track hire" style="width: 100%; border-radius: var(--border-radius-md); box-shadow: var(--glow-shadow);">
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KART TUNING & PIT LANE COACHING -->
+    <section class="section-container" id="coaching-pit">
+      <h2 class="section-title">PIT LANE COACHING & TUNING</h2>
+      <p class="section-subtitle">Improve your driving lines. Work one-on-one with our professional league instructors.</p>
+      
+      <div class="grid-4col">
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">1 on 1</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Apex Coaching</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">A 30-minute private track lesson detailing corner entry weight transfers. $50.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Video Analysis</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Video Telemetry</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Post-session video analysis of your kart transponder telemetry data. $30.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Tire Prep</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Custom Tire Prep</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Pre-heat slick setups configured to match target track conditions. $15 / run.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Group Classes</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Rookie Seminars</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Weekly group seminars explaining racing flag systems and safety protocols. Free.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES BOOKING CTA -->
+    <section class="section-container" style="padding-bottom: 100px;">
+      <div class="glass-card hologram-panel" style="padding: 60px 40px; text-align: center; border-radius: var(--border-radius-lg);">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">SECURE YOUR MOTORSPORT SESSION</h2>
+        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">Confirm your driving session date, schedule coaching slots, or customize corporate packages online.</p>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+          <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Session</a>
+          <a href="contact.html" class="btn-cta btn-secondary">Inquire Event</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 24 24">
+            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+          </svg>
+          <span class="logo-text">GO-KART RACING</span>
+        </a>
+        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
+      </div>
+      <div class="footer-col">
+        <h4>RACING HOURS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><span class="font-telemetry">MON - THU:</span> 12:00 PM - 10:00 PM</li>
+          <li class="footer-link"><span class="font-telemetry">FRI - SAT:</span> 10:00 AM - Midnight</li>
+          <li class="footer-link"><span class="font-telemetry">SUNDAY:</span> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="track.html">Track Layouts</a></li>
+          <li class="footer-link"><a href="packages.html">Party & Events</a></li>
+          <li class="footer-link"><a href="league.html">Racing League</a></li>
+          <li class="footer-link"><a href="waiver.html">Safety Waiver</a></li>
+          <li class="footer-link"><a href="about.html">About Us</a></li>
+          <li class="footer-link"><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT INFO</h4>
+        <ul class="footer-links">
+          <li class="footer-link">100 Speedway Blvd, Racing City</li>
+          <li class="footer-link">Phone: +1 (555) 722-3787</li>
+          <li class="footer-link">Email: race@gokartracing.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
+      <div>
+        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
+        <a href="register.html" class="helper-link">Register Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Binding -->
+  <script src="js/main.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/router.js"></script>
+</body>
+</html>

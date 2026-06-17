@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-Kart Racing Track | Our Story & Fleet Tech</title>
+  <meta name="description" content="Discover the history of Go-Kart Racing Track, our advanced electric fleet technologies, and meet our professional race instructors.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- GSAP & Plugins (ScrollTrigger) CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js Canvas for 3D Background Grid & Splines -->
+  <canvas id="three-bg-canvas"></canvas>
+
+  <!-- Sticky Glassmorphism Navbar -->
+  <header>
+    <div class="navbar-container">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24">
+          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+        </svg>
+        <span class="logo-text">GO-KART RACING</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-link-item"><a href="index.html">Home 1</a></li>
+          <li class="nav-link-item"><a href="home2.html">Home 2</a></li>
+          <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
+          <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
+          <li class="nav-link-item"><a href="league.html">Racing League</a></li>
+          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
+          <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
+          <li class="nav-link-item"><a href="about.html" class="active">About Us</a></li>
+          <li class="nav-link-item"><a href="services.html">Services</a></li>
+          <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="btn-control" title="Toggle Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+        </button>
+        <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
+          RTL
+        </button>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Race</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page transitions overlay -->
+  <div id="transition-overlay">
+    <div id="transition-overlay-content">CALIBRATING SYSTEM...</div>
+  </div>
+
+  <!-- Primary AJAX Content Container -->
+  <main id="app-container">
+
+    <!-- 1. ABOUT HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-media">
+        <img src="assets/images/corporate_event.png" alt="About Us Corporate Team">
+      </div>
+      <div class="hero-content">
+        <div class="font-telemetry" style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Meet The Crew</div>
+        <h1 class="hero-title" style="font-size: 3.5rem;">DRIVEN BY <br><span>PERFORMANCE</span></h1>
+        <p class="hero-tagline">Since 2018, Go-Kart Racing Track has pushed limits. Discover our focus on high-speed electric drive tech, track safety design, and driver telemetry.</p>
+        <a href="#our-story" class="btn-cta btn-primary">Read Our Story</a>
+      </div>
+    </section>
+
+    <!-- 2. OUR STORY / HISTORY -->
+    <section class="section-container" id="our-story" style="background: rgba(10, 10, 10, 0.5);">
+      <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1.2; min-width: 320px;">
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase;">Est. 2018</span>
+          <h2 class="section-title section-title-start">OUR MOTORSPORT HISTORY</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">What started as a single outdoor racing track has developed into a premium multi-facility motorsport hub. We were among the first to commit fully to high-performance electric powertrains, eliminating emissions while tripling initial torque outputs.</p>
+          <p style="color: var(--color-text-muted); margin-bottom: 25px; line-height: 1.6;">Our facility is designed by professional racing architects. It merges safety run-off loops with technical chicanes and elevation switches, offering professional karting to families and competitive leagues alike.</p>
+        </div>
+        <div style="flex: 0.8; min-width: 280px;">
+          <img src="assets/images/outdoor_track.png" alt="Asphalt track history" style="width: 100%; border-radius: var(--border-radius-md); box-shadow: var(--glow-shadow);">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FLEET & TECH -->
+    <section class="section-container" id="fleet-tech">
+      <h2 class="section-title">THE RACING FLEET</h2>
+      <p class="section-subtitle">Our fleet features state-of-the-art electric powertrains providing instant acceleration.</p>
+      
+      <div class="grid-4col">
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Powertrain</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Electric Drive</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">400cc equivalent brushless motors with remote speed overrides for total safety controls.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Chassis</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Chromoly Steel</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Low center of gravity race frames with impact-absorbing bumpers for G-force traction.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Telemetry</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Live transponders</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">Transponders capture split-seconds at every sector, displaying timings to the lounge board.</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag font-telemetry">Power Cell</span>
+          <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Lithium-Ion</h3>
+          <p class="card-desc" style="font-size: 0.85rem;">High-density fast charge batteries offering 45 minutes of continuous full power runs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEADERSHIP TEAM -->
+    <section class="section-container" id="team" style="background: rgba(10, 10, 10, 0.5);">
+      <h2 class="section-title">PIT LANE LEADERSHIP</h2>
+      <p class="section-subtitle">Meet our crew of race directors, chassis technicians, and safety managers.</p>
+      
+      <div class="grid-4col">
+        <div class="glass-card">
+          <div class="card-img-wrapper" style="height: 160px;">
+            <img src="assets/images/pro_racers.png" alt="Racer Profile">
+          </div>
+          <span class="card-tag font-telemetry">Head Director</span>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 5px;">Christian Horner</h3>
+          <p class="card-desc" style="font-size: 0.8rem;">Former F3 driver with 15+ years of race facility coordination.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-img-wrapper" style="height: 160px;">
+            <img src="assets/images/pro_racers.png" alt="Racer Profile">
+          </div>
+          <span class="card-tag font-telemetry">Chief Engineer</span>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 5px;">Adrian Newey</h3>
+          <p class="card-desc" style="font-size: 0.8rem;">Aerodynamics specialist optimizing our kart steering geometry.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-img-wrapper" style="height: 160px;">
+            <img src="assets/images/pro_racers.png" alt="Racer Profile">
+          </div>
+          <span class="card-tag font-telemetry">Safety Officer</span>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 5px;">Michael Masi</h3>
+          <p class="card-desc" style="font-size: 0.8rem;">Monitors flags operations and remote track limit controllers.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-img-wrapper" style="height: 160px;">
+            <img src="assets/images/pro_racers.png" alt="Racer Profile">
+          </div>
+          <span class="card-tag font-telemetry">League Coordinator</span>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 5px;">Susie Wolff</h3>
+          <p class="card-desc" style="font-size: 0.8rem;">Manages driver championship brackets and team registries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ABOUT BOOKING CTA -->
+    <section class="section-container" style="padding-bottom: 100px;">
+      <div class="glass-card hologram-panel" style="padding: 60px 40px; text-align: center; border-radius: var(--border-radius-lg);">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">READY TO CLAIM THE APEX?</h2>
+        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">Book a session and experience our advanced electric go-karts and technical tracks.</p>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim" style="padding: 15px 45px; height: auto;">RESERVE YOUR GRID SEAT</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 24 24">
+            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+          </svg>
+          <span class="logo-text">GO-KART RACING</span>
+        </a>
+        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
+      </div>
+      <div class="footer-col">
+        <h4>RACING HOURS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><span class="font-telemetry">MON - THU:</span> 12:00 PM - 10:00 PM</li>
+          <li class="footer-link"><span class="font-telemetry">FRI - SAT:</span> 10:00 AM - Midnight</li>
+          <li class="footer-link"><span class="font-telemetry">SUNDAY:</span> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="track.html">Track Layouts</a></li>
+          <li class="footer-link"><a href="packages.html">Party & Events</a></li>
+          <li class="footer-link"><a href="league.html">Racing League</a></li>
+          <li class="footer-link"><a href="waiver.html">Safety Waiver</a></li>
+          <li class="footer-link"><a href="about.html">About Us</a></li>
+          <li class="footer-link"><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT INFO</h4>
+        <ul class="footer-links">
+          <li class="footer-link">100 Speedway Blvd, Racing City</li>
+          <li class="footer-link">Phone: +1 (555) 722-3787</li>
+          <li class="footer-link">Email: race@gokartracing.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
+      <div>
+        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
+        <a href="register.html" class="helper-link">Register Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Binding -->
+  <script src="js/main.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/router.js"></script>
+</body>
+</html>

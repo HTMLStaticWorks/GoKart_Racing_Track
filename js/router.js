@@ -194,6 +194,12 @@ function initPageSpecificBindings() {
   if (loginForm) {
     initLoginFormSubmit(loginForm);
   }
+
+  // 7. Scroll Reveal Animations (About, Services, and other pages)
+  const sections = document.querySelectorAll('.section-container');
+  if (sections.length > 0 || document.querySelector('.hero-content')) {
+    initScrollAnimations();
+  }
 }
 
 /* INTERACTION BINDINGS IMPLEMENTATIONS */
@@ -465,5 +471,70 @@ function initLoginFormSubmit(form) {
     e.preventDefault();
     alert("Security profile authorized! Entering grid lobbies.");
     navigateToPage("index.html");
+  });
+}
+
+// 7. GSAP Scroll Trigger Animations
+function initScrollAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  // Register plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Kill existing ScrollTriggers to prevent duplicate instances on AJAX transitions
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+  // 1. Hero Content Entrance
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    gsap.fromTo(heroContent.children,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out" }
+    );
+  }
+
+  // 2. Animate sections as they scroll into view
+  const sections = document.querySelectorAll('.section-container');
+  sections.forEach((section) => {
+    const title = section.querySelector('.section-title');
+    const subtitle = section.querySelector('.section-subtitle');
+    
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    if (title) {
+      tl.fromTo(title,
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+      );
+    }
+
+    if (subtitle) {
+      tl.fromTo(subtitle,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.4"
+      );
+    }
+
+    // Capture grid items, cards, image panels, paragraphs, CTAs, list elements, form fields
+    const animElements = section.querySelectorAll('.grid-4col > *, .glass-card, img, p:not(.section-subtitle), .btn-cta, .feature-list, .form-group, .hologram-panel');
+    const directAnimElements = Array.from(animElements).filter(el => {
+      // Keep only if parent section is this section and it's not nested inside another element we already animate (like glass-card)
+      return el.closest('.section-container') === section && !el.parentElement.closest('.glass-card') && !el.parentElement.closest('.hologram-panel');
+    });
+
+    if (directAnimElements.length > 0) {
+      tl.fromTo(directAnimElements,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out" },
+        "-=0.4"
+      );
+    }
   });
 }
