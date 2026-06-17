@@ -51,12 +51,15 @@ body.light-theme {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none !important; /* Hide default cursor to replace with Go-Kart cursor */
 }
 
-/* Re-allow default cursors for text inputs/textareas to maintain usability, but we still render our kart custom cursor on top */
+body, body * {
+  cursor: none; /* Hide default cursor inside the body content */
+}
+
+/* Re-allow default cursors for text inputs/textareas to maintain usability */
 input, textarea, select {
-  cursor: text !important;
+  cursor: text;
 }
 
 html, body {
@@ -117,13 +120,16 @@ p, span, li, a {
 }
 
 /* Custom Go-Kart Cursor */
+#go-kart-cursor, #go-kart-cursor * {
+  pointer-events: none !important;
+}
+
 #go-kart-cursor {
   position: fixed;
   top: 0;
   left: 0;
   width: var(--cursor-size);
   height: var(--cursor-size);
-  pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%) rotate(0deg);
   transition: transform 0.05s linear;
