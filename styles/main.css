@@ -53,20 +53,7 @@ body.light-theme {
   padding: 0;
 }
 
-body, body * {
-  cursor: none; /* Hide default cursor inside the body content */
-}
-
-/* Restore default cursor when near scrollbar or when required for system navigation */
-body.show-default-cursor,
-body.show-default-cursor * {
-  cursor: auto !important;
-}
-
-/* Re-allow default cursors for text inputs/textareas to maintain usability */
-input, textarea, select {
-  cursor: text;
-}
+/* Reset styles */
 
 html, body {
   width: 100%;
@@ -124,55 +111,7 @@ p, span, li, a {
   background: var(--color-primary);
   box-shadow: var(--glow-shadow);
 }
-
-/* Custom Go-Kart Cursor */
-#go-kart-cursor, #go-kart-cursor * {
-  pointer-events: none !important;
-}
-
-#go-kart-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--cursor-size);
-  height: var(--cursor-size);
-  z-index: 9999;
-  transform: translate(-50%, -50%) rotate(0deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.kart-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-  transition: transform 0.1s ease-out;
-}
-
-/* Cursor Trail & Particles */
-.speed-trail {
-  position: fixed;
-  pointer-events: none;
-  background: var(--color-glow);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  opacity: 0.8;
-  z-index: 9998;
-  box-shadow: 0 0 8px var(--color-glow);
-}
-
-.smoke-particle {
-  position: fixed;
-  pointer-events: none;
-  background: rgba(180, 180, 180, 0.4);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  filter: blur(2px);
-  z-index: 9997;
-}
+/* End Custom Scrollbar */
 
 /* Sticky Premium Glassmorphism Navbar */
 header {
