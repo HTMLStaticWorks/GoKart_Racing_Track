@@ -142,7 +142,7 @@ function initGoKartCursor() {
   // Track hover elements (links, buttons, interactive cards)
   let isHovering = false;
   const updateHovers = () => {
-    const interactives = document.querySelectorAll('a, button, input, textarea, select, .glass-card, .btn-control, [data-hover-accelerate]');
+    const interactives = document.querySelectorAll('a, button, input, textarea, select, .btn-control, [data-hover-accelerate]');
     interactives.forEach(el => {
       // Avoid duplicate attachments
       if (el.dataset.cursorBound) return;
@@ -221,7 +221,7 @@ function initGoKartCursor() {
     const flame = document.getElementById('exhaust-flame');
     const flameInner = document.getElementById('exhaust-flame-inner');
     if (flame && flameInner) {
-      if (velocity > 12 || isHovering) {
+      if (velocity > 12) {
         flame.style.opacity = '0.9';
         flameInner.style.opacity = '1';
         // Random flame flicker
