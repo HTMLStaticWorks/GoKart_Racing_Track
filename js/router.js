@@ -98,6 +98,11 @@ function fetchPage(url, pushState) {
       // Update Page Title
       document.title = newDoc.title;
 
+      // Update Body ID to match the new page for CSS-based active highlighting
+      if (newDoc.body) {
+        document.body.id = newDoc.body.id || '';
+      }
+
       // Update Content
       const appContainer = document.getElementById('app-container');
       const newAppContainer = newDoc.getElementById('app-container');

@@ -280,8 +280,42 @@ body[dir="rtl"] .nav-link-item.dropdown:hover .dropdown-menu {
   transform: translateX(50%) translateY(0);
 }
 
-body[dir="rtl"] .dropdown-menu a:hover, body[dir="rtl"] .dropdown-menu a.active {
-  box-shadow: inset -3px 0 0 var(--color-primary);
+/* CSS-based Active Navigation Highlighting by Body ID and Href attributes */
+#page-home1 .nav-links a[href="index.html"],
+#page-home2 .nav-links a[href="index.html"],
+#page-track .nav-links a[href="track.html"],
+#page-packages .nav-links a[href="packages.html"],
+#page-league .nav-links a[href="league.html"],
+#page-book .nav-links a[href="book.html"],
+#page-waiver .nav-links a[href="waiver.html"],
+#page-about .nav-links a[href="about.html"],
+#page-services .nav-links a[href="services.html"],
+#page-contact .nav-links a[href="contact.html"] {
+  color: var(--color-text) !important;
+}
+
+#page-home1 .nav-links a[href="index.html"]::after,
+#page-home2 .nav-links a[href="index.html"]::after,
+#page-track .nav-links a[href="track.html"]::after,
+#page-packages .nav-links a[href="packages.html"]::after,
+#page-league .nav-links a[href="league.html"]::after,
+#page-book .nav-links a[href="book.html"]::after,
+#page-waiver .nav-links a[href="waiver.html"]::after,
+#page-about .nav-links a[href="about.html"]::after,
+#page-services .nav-links a[href="services.html"]::after,
+#page-contact .nav-links a[href="contact.html"]::after {
+  width: 100% !important;
+}
+
+/* Home 2 Submenu active item inside dropdown */
+#page-home2 .nav-links a[href="home2.html"] {
+  color: var(--color-text) !important;
+  background: rgba(225, 6, 0, 0.15) !important;
+  box-shadow: inset 3px 0 0 var(--color-primary) !important;
+}
+
+body[dir="rtl"]#page-home2 .nav-links a[href="home2.html"] {
+  box-shadow: inset -3px 0 0 var(--color-primary) !important;
 }
 
 .nav-controls {

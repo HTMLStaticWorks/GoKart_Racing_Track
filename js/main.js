@@ -36,43 +36,8 @@ function initGlobalControls() {
     });
   }
 
-  // Active link state listener
   const updateActiveNavLink = () => {
-    const path = window.location.pathname;
-    const page = path.split("/").pop();
-    
-    // Check if the current page represents the home page (Home 1)
-    const isHomePage = !page || page === 'index.html' || page.toLowerCase() === 'gokart_racing_track' || decodeURIComponent(page).toLowerCase() === 'go-kart racing track';
-    
-    document.querySelectorAll('.nav-link-item a').forEach(a => {
-      const href = a.getAttribute('href');
-      const isCurrentHome = isHomePage && (href === 'index.html' || href === './');
-      if (href === page || isCurrentHome) {
-        a.classList.add('active');
-      } else {
-        a.classList.remove('active');
-      }
-    });
-
-    // Also highlight parent if a dropdown child is active
-    document.querySelectorAll('.nav-link-item.dropdown').forEach(dropdown => {
-      const activeChild = dropdown.querySelector('.dropdown-menu a.active');
-      const parentLink = dropdown.querySelector('> a');
-      if (parentLink) {
-        if (activeChild) {
-          parentLink.classList.add('active');
-        } else {
-          // Keep active if parent link itself matches page or is home page
-          const parentHref = parentLink.getAttribute('href');
-          const isCurrentHome = isHomePage && (parentHref === 'index.html' || parentHref === './');
-          if (parentHref === page || isCurrentHome) {
-            parentLink.classList.add('active');
-          } else {
-            parentLink.classList.remove('active');
-          }
-        }
-      }
-    });
+    // Relying on CSS-based highlighting via body id and href attributes
   };
   
   updateActiveNavLink();
