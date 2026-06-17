@@ -39,11 +39,15 @@ function initGlobalControls() {
   // Active link state listener
   const updateActiveNavLink = () => {
     const path = window.location.pathname;
-    const page = path.split("/").pop() || 'index.html';
+    const page = path.split("/").pop();
+    
+    // Check if the current page represents the home page (Home 1)
+    const isHomePage = !page || page === 'index.html' || page.toLowerCase() === 'gokart_racing_track' || decodeURIComponent(page).toLowerCase() === 'go-kart racing track';
     
     document.querySelectorAll('.nav-link-item a').forEach(a => {
       const href = a.getAttribute('href');
-      if (href === page || (page === 'index.html' && href === './') || (page === '' && href === './')) {
+      const isCurrentHome = isHomePage && (href === 'index.html' || href === './');
+      if (href === page || isCurrentHome) {
         a.classList.add('active');
       } else {
         a.classList.remove('active');
@@ -58,9 +62,10 @@ function initGlobalControls() {
         if (activeChild) {
           parentLink.classList.add('active');
         } else {
-          // Keep active if parent link itself matches page
+          // Keep active if parent link itself matches page or is home page
           const parentHref = parentLink.getAttribute('href');
-          if (parentHref === page || (page === 'index.html' && parentHref === './') || (page === '' && parentHref === './')) {
+          const isCurrentHome = isHomePage && (parentHref === 'index.html' || parentHref === './');
+          if (parentHref === page || isCurrentHome) {
             parentLink.classList.add('active');
           } else {
             parentLink.classList.remove('active');
