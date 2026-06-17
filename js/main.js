@@ -31,6 +31,9 @@ function initSmoothScroll() {
       infinite: false,
     });
 
+    // Expose globally
+    window.lenisInstance = lenisInstance;
+
     function raf(time) {
       lenisInstance.raf(time);
       requestAnimationFrame(raf);
@@ -40,10 +43,6 @@ function initSmoothScroll() {
     // Sync GSAP ScrollTrigger if GSAP is loaded
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       lenisInstance.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenisInstance.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
     }
   }
 }

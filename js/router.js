@@ -121,6 +121,7 @@ function fetchPage(url, pushState) {
 
       // Scroll to top
       if (typeof Lenis !== 'undefined' && window.lenisInstance) {
+        window.lenisInstance.resize();
         window.lenisInstance.scrollTo(0, { immediate: true });
       } else {
         window.scrollTo(0, 0);
