@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-Kart Racing Track | Next-Gen Motorsports Destination</title>
+  <meta name="description" content="Experience high-speed thrill at Go-Kart Racing Track. Showcasing premium track specifications, speed categories, competitive racing leagues, and custom party packages.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- GSAP & Plugins (ScrollTrigger) CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js Canvas for 3D Background Grid & Splines -->
+  <canvas id="three-bg-canvas"></canvas>
+
+  <!-- Sticky Glassmorphism Navbar -->
+  <header>
+    <div class="navbar-container">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24">
+          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+        </svg>
+        <span class="logo-text">GO-KART RACING</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-link-item"><a href="index.html" class="active">Home 1</a></li>
+          <li class="nav-link-item"><a href="home2.html">Home 2</a></li>
+          <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
+          <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
+          <li class="nav-link-item"><a href="league.html">Racing League</a></li>
+          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
+          <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
+          <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="btn-control" title="Toggle Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+        </button>
+        <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
+          RTL
+        </button>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Race</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page transitions overlay -->
+  <div id="transition-overlay">
+    <div id="transition-overlay-content">CALIBRATING SYSTEM...</div>
+  </div>
+
+  <!-- Primary AJAX Content Container -->
+  <main id="app-container">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-media">
+        <img src="assets/images/starting_grid.png" alt="Starting Grid Go-Kart Scene">
+      </div>
+      <div class="hero-content">
+        <!-- F1 Starting Lights graphic -->
+        <div class="racing-lights" id="starting-lights">
+          <div class="light-bulb"></div>
+          <div class="light-bulb"></div>
+          <div class="light-bulb"></div>
+          <div class="light-bulb"></div>
+          <div class="light-bulb"></div>
+        </div>
+        <h1 class="hero-title">UNCAGE THE <br><span>SPEED DEMON</span></h1>
+        <p class="hero-tagline">Welcome to the ultimate next-generation racing destination. Push boundaries with electric torque, dynamic tracks, and premium high-speed competition.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="book.html" class="btn-cta btn-primary">Book Your Race</a>
+          <a href="league.html" class="btn-cta btn-secondary">Join Racing League</a>
+        </div>
+      </div>
+
+      <!-- Hero Live Telemetry Overlay -->
+      <div class="telemetry-overlay glass-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--color-glow); padding-bottom: 8px;">
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 600;">LIVE TELEMETRY</span>
+          <span style="font-size: 0.65rem; padding: 2px 6px; background: rgba(0,225,109,0.2); border: 1px solid #00E16D; border-radius: 4px; color: #00E16D; text-transform: uppercase;">Active</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">G-Force</span>
+          <span class="telemetry-value" id="telemetry-gforce">1.84 G</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">Engine Speed</span>
+          <span class="telemetry-value" id="telemetry-rpm">8240 RPM</span>
+        </div>
+        
+        <!-- Throttle & Brake visual meters -->
+        <div style="margin-bottom: 15px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">
+            <span>Throttle</span>
+            <span id="telemetry-throttle" style="color: #00E16D; font-weight: 600;">88%</span>
+          </div>
+          <div style="width: 100%; height: 4px; background: #222; border-radius: 2px;">
+            <div id="telemetry-throttle-bar" style="width: 88%; height: 100%; background: #00E16D; border-radius: 2px; transition: width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">
+            <span>Brake Pressure</span>
+            <span id="telemetry-brake" style="color: var(--color-primary); font-weight: 600;">5%</span>
+          </div>
+          <div style="width: 100%; height: 4px; background: #222; border-radius: 2px;">
+            <div id="telemetry-brake-bar" style="width: 5%; height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.3s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Speedometer dials -->
+        <div class="speedometer-container">
+          <svg class="speedometer-svg">
+            <circle class="speedometer-track" cx="75" cy="75" r="50" />
+            <circle class="speedometer-fill" data-max-speed="65" cx="75" cy="75" r="50" />
+          </svg>
+          <div class="speedometer-text">
+            <div class="speed-number">55</div>
+            <div class="speed-unit">MPH</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURED TRACK ZONES -->
+    <section class="section-container" id="track-zones">
+      <h2 class="section-title">FEATURED TRACK ZONES</h2>
+      <p class="section-subtitle">Discover four customized track tiers, each designed to push your racing skills to their limits.</p>
+      
+      <div class="grid-4col">
+        <!-- Card 1 -->
+        <div class="glass-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/indoor_track.png" alt="Indoor Track Zone">
+          </div>
+          <span class="card-tag">Speed zone 01</span>
+          <h3 class="card-title">Indoor Arena</h3>
+          <p class="card-desc">Sleek multi-level indoor racing circuit featuring glowing LED boundaries, 400m loops, and challenging turns.</p>
+          <a href="track.html" class="btn-cta btn-secondary" style="margin-top: auto;">Explore Track</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/outdoor_track.png" alt="Outdoor Track Zone">
+          </div>
+          <span class="card-tag">Speed zone 02</span>
+          <h3 class="card-title">Outdoor Circuit</h3>
+          <p class="card-desc">A professional-grade asphalt Grand Prix track layout featuring long high-speed straightaways and deep curbs.</p>
+          <a href="track.html" class="btn-cta btn-secondary" style="margin-top: auto;">Explore Track</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/family_kart.png" alt="Family Track Zone">
+          </div>
+          <span class="card-tag">Speed zone 03</span>
+          <h3 class="card-title">Family Track</h3>
+          <p class="card-desc">A secure racing environment optimized for double karts, kids, and fun team experiences.</p>
+          <a href="track.html" class="btn-cta btn-secondary" style="margin-top: auto;">Explore Track</a>
+        </div>
+        <!-- Card 4 -->
+        <div class="glass-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/pro_racers.png" alt="Pro Circuit Zone">
+          </div>
+          <span class="card-tag">Speed zone 04</span>
+          <h3 class="card-title">Pro Circuit</h3>
+          <p class="card-desc">A high-difficulty championship layout designed for high-performance karts reaching 60+ MPH.</p>
+          <a href="track.html" class="btn-cta btn-secondary" style="margin-top: auto;">Explore Track</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BIRTHDAY PARTY PACKAGES -->
+    <section class="section-container" id="birthday-packages" style="background: rgba(10, 10, 10, 0.5);">
+      <h2 class="section-title">BIRTHDAY PARTY PACKAGES</h2>
+      <p class="section-subtitle">Celebrate in the fast lane! Our customizable racing packages guarantee an unforgettable event.</p>
+      
+      <div class="grid-4col">
+        <!-- Package 1 -->
+        <div class="glass-card">
+          <span class="card-tag">Ages 8-12</span>
+          <h3 class="card-title">Junior Grand Prix</h3>
+          <div class="price-tag">
+            <span class="price-currency">$</span>
+            <span class="price-amount">350</span>
+            <span class="price-period">/ group</span>
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>12 Junior Racing Tickets</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Private Safety Briefing</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Reserved Party Room (1 Hr)</span>
+            </li>
+          </ul>
+          <a href="packages.html" class="btn-cta btn-secondary" style="margin-top: auto;">Select Package</a>
+        </div>
+
+        <!-- Package 2 (Popular Highlighted) -->
+        <div class="glass-card pricing-card popular">
+          <span class="popular-badge">Most Popular</span>
+          <span class="card-tag">Ages 13+</span>
+          <h3 class="card-title">Speed Masters</h3>
+          <div class="price-tag">
+            <span class="price-currency">$</span>
+            <span class="price-amount">480</span>
+            <span class="price-period">/ group</span>
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>15 High-Speed Tickets</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Pro Telemetry Reports</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Pizza & Soda Combo included</span>
+            </li>
+          </ul>
+          <a href="packages.html" class="btn-cta btn-primary" style="margin-top: auto;">Select Package</a>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="glass-card">
+          <span class="card-tag">All Ages</span>
+          <h3 class="card-title">Neon Night Glow</h3>
+          <div class="price-tag">
+            <span class="price-currency">$</span>
+            <span class="price-amount">550</span>
+            <span class="price-period">/ group</span>
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>12 Night Glow Tickets</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>UV Glow Gear provided</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>VIP Lounge access</span>
+            </li>
+          </ul>
+          <a href="packages.html" class="btn-cta btn-secondary" style="margin-top: auto;">Select Package</a>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="glass-card">
+          <span class="card-tag">Adults 18+</span>
+          <h3 class="card-title">Elite Endurance</h3>
+          <div class="price-tag">
+            <span class="price-currency">$</span>
+            <span class="price-amount">650</span>
+            <span class="price-period">/ group</span>
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Private Mini-Grand Prix Format</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>Champagne Podium Ceremony</span>
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span>High-Def Video Recap file</span>
+            </li>
+          </ul>
+          <a href="packages.html" class="btn-cta btn-secondary" style="margin-top: auto;">Select Package</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. RACING EXPERIENCE HIGHLIGHTS -->
+    <section class="section-container" id="experience-highlights">
+      <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 320px;">
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">REAL RACING DYNAMICS</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 30px; font-size: 1.05rem;">Our karting systems are equipped with industrial-grade electric motors, delivering 100% instantaneous torque straight out of corner apexes. Combined with low-profile chassis physics, feel real G-forces as you dive down hairpins.</p>
+          
+          <div style="display: flex; gap: 30px; margin-bottom: 30px;">
+            <div>
+              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 700; line-height: 1;">0-45<span style="font-size: 1.2rem;">MPH</span></div>
+              <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 5px;">In 3.2 Seconds</div>
+            </div>
+            <div style="border-left: 1px solid var(--color-glass-border); padding-left: 30px;">
+              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 700; line-height: 1;">2.5G</div>
+              <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 5px;">Lateral Acceleration</div>
+            </div>
+          </div>
+          <a href="track.html" class="btn-cta btn-primary">Check Track Features</a>
+        </div>
+        <div style="flex: 1; min-width: 320px;">
+          <img src="assets/images/pro_racers.png" alt="Pro Racer Cornering" style="width: 100%; border-radius: var(--border-radius-md); box-shadow: var(--glow-shadow);">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CUSTOMER TESTIMONIALS -->
+    <section class="section-container" id="testimonials" style="background: rgba(10, 10, 10, 0.5);">
+      <h2 class="section-title">RACER TESTIMONIALS</h2>
+      <p class="section-subtitle">Read what our grid of professional drivers and casual racers say about our high-tech circuit.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="glass-card">
+          <div style="display: flex; gap: 5px; margin-bottom: 15px; color: var(--color-primary);">
+            ★★★★★
+          </div>
+          <p class="card-desc" style="font-style: italic;">"The instant torque of the electric karts is absolutely crazy. The indoor track feels like a video game. I've already signed up for the competitive league!"</p>
+          <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
+            <div style="font-weight: 600; font-size: 0.95rem;">Marcus Vance</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">League Racer</div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div style="display: flex; gap: 5px; margin-bottom: 15px; color: var(--color-primary);">
+            ★★★★★
+          </div>
+          <p class="card-desc" style="font-style: italic;">"Hosted my son's 12th birthday party here. The staff took safety seriously, the digital leaderboards kept the kids excited, and they had a blast!"</p>
+          <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
+            <div style="font-weight: 600; font-size: 0.95rem;">Sarah Connor</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">Parent</div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div style="display: flex; gap: 5px; margin-bottom: 15px; color: var(--color-primary);">
+            ★★★★★
+          </div>
+          <p class="card-desc" style="font-style: italic;">"Outstanding corporate event. We ran a mini Grand Prix, had live telemetry on the lounge TVs, and finished with a champagne podium. Unbelievable experience!"</p>
+          <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
+            <div style="font-weight: 600; font-size: 0.95rem;">David Chen</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">CTO, DevCorp</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BOOKING CTA BANNER -->
+    <section class="section-container" style="padding-bottom: 100px;">
+      <div class="glass-card hologram-panel" style="padding: 60px 40px; text-align: center; border-radius: var(--border-radius-lg);">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">READY TO CLAIM THE APEX?</h2>
+        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">Reserve your race slot today. Fast-track queue access, choose your speed tier, and log in to track your personal performance telemetry.</p>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim" style="padding: 15px 45px; height: auto;">BOOK YOUR RACE NOW</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 24 24">
+            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+          </svg>
+          <span class="logo-text">GO-KART RACING</span>
+        </a>
+        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
+      </div>
+      <div class="footer-col">
+        <h4>RACING HOURS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><span class="font-telemetry">MON - THU:</span> 12:00 PM - 10:00 PM</li>
+          <li class="footer-link"><span class="font-telemetry">FRI - SAT:</span> 10:00 AM - Midnight</li>
+          <li class="footer-link"><span class="font-telemetry">SUNDAY:</span> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="track.html">Track Layouts</a></li>
+          <li class="footer-link"><a href="packages.html">Party & Events</a></li>
+          <li class="footer-link"><a href="league.html">Racing League</a></li>
+          <li class="footer-link"><a href="waiver.html">Safety Waiver</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT INFO</h4>
+        <ul class="footer-links">
+          <li class="footer-link">100 Speedway Blvd, Racing City</li>
+          <li class="footer-link">Phone: +1 (555) 722-3787</li>
+          <li class="footer-link">Email: race@gokartracing.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
+      <div>
+        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
+        <a href="register.html" class="helper-link">Register Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Binding -->
+  <script src="js/main.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/router.js"></script>
+
+  <!-- Simple script for Hero F1 starting lights animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      animateF1Lights();
+    });
+    
+    // Allow re-calling when navigating back via AJAX
+    window.addEventListener('popstate', animateF1Lights);
+    
+    function animateF1Lights() {
+      const bulbs = document.querySelectorAll('#starting-lights .light-bulb');
+      if (bulbs.length === 0) return;
+      
+      // Reset
+      bulbs.forEach(b => {
+        b.className = 'light-bulb';
+      });
+      
+      if (typeof gsap !== 'undefined') {
+        const tl = gsap.timeline();
+        
+        // Red lights turn on one by one
+        bulbs.forEach((bulb, index) => {
+          tl.to(bulb, {
+            onStart: () => {
+              bulb.classList.add('red');
+            },
+            duration: 0.1
+          }, `+=${0.6}`);
+        });
+        
+        // Wait, then turn all green!
+        tl.to(bulbs, {
+          onStart: () => {
+            bulbs.forEach(b => {
+              b.classList.remove('red');
+              b.classList.add('green');
+            });
+          },
+          duration: 0.2
+        }, `+=${0.8}`);
+        
+        // Fade out green lights after a brief duration
+        tl.to(bulbs, {
+          opacity: 0.2,
+          duration: 1,
+          ease: "power2.out"
+        }, "+=1.5");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-Kart Racing Track | Digital Safety Waiver</title>
+  <meta name="description" content="Register your digital safety waiver online. Obey flags, review tracks safety briefing, and validate signatures.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- GSAP & Plugins (ScrollTrigger) CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js Canvas for 3D Background Grid & Splines -->
+  <canvas id="three-bg-canvas"></canvas>
+
+  <!-- Sticky Glassmorphism Navbar -->
+  <header>
+    <div class="navbar-container">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24">
+          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+        </svg>
+        <span class="logo-text">GO-KART RACING</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-link-item"><a href="index.html">Home 1</a></li>
+          <li class="nav-link-item"><a href="home2.html">Home 2</a></li>
+          <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
+          <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
+          <li class="nav-link-item"><a href="league.html">Racing League</a></li>
+          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
+          <li class="nav-link-item"><a href="waiver.html" class="active">Safety Waiver</a></li>
+          <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="btn-control" title="Toggle Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+        </button>
+        <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
+          RTL
+        </button>
+        <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Race</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page transitions overlay -->
+  <div id="transition-overlay">
+    <div id="transition-overlay-content">CALIBRATING SYSTEM...</div>
+  </div>
+
+  <!-- Primary AJAX Content Container -->
+  <main id="app-container">
+
+    <!-- 1. WAIVER HERO -->
+    <section class="hero-section" id="hero" style="min-height: 50vh; padding: 120px 5% 50px;">
+      <div class="hero-bg-media">
+        <!-- Safety image reference -->
+        <div style="background-color: rgba(10,10,10,0.85); width: 100%; height: 100%; position: absolute; z-index: 1;"></div>
+        <img src="assets/images/starting_grid.png" alt="Safety Briefing Background">
+      </div>
+      <div class="hero-content">
+        <div class="font-telemetry" style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Grid Regulations</div>
+        <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 10px;">SAFETY WAIVER &<br><span>TRACK CONDUCT RULES</span></h1>
+        <p class="hero-tagline" style="margin-bottom: 0;">Read and digital-sign the liability waiver below. Required for all pilots before accessing the grid pitlane.</p>
+      </div>
+    </section>
+
+    <!-- 2. SAFETY INSTRUCTIONS (FLAGS) -->
+    <section class="section-container" id="flags" style="padding-top: 50px;">
+      <h2 class="section-title">TRACK LIGHTS & WARNING FLAGS</h2>
+      <p class="section-subtitle">Familiarize yourself with the circuit signaling system to maintain high-speed safety.</p>
+      
+      <div class="grid-4col">
+        <!-- Flag 1 -->
+        <div class="glass-card" style="border-left: 5px solid #00E16D;">
+          <div style="font-size: 0.8rem; font-family: var(--font-stats); color: #00E16D; font-weight: 600; margin-bottom: 8px;">GREEN SIGNAL</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Track is Clear</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">Race is active. Standard high-speed operations and overtaking allowed.</p>
+        </div>
+        <!-- Flag 2 -->
+        <div class="glass-card" style="border-left: 5px solid #FFD700;">
+          <div style="font-size: 0.8rem; font-family: var(--font-stats); color: #FFD700; font-weight: 600; margin-bottom: 8px;">YELLOW SIGNAL</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Caution / Slip</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">Hazard on track or spin out ahead. Slow down immediately; no overtaking.</p>
+        </div>
+        <!-- Flag 3 -->
+        <div class="glass-card" style="border-left: 5px solid #33a8ff;">
+          <div style="font-size: 0.8rem; font-family: var(--font-stats); color: #33a8ff; font-weight: 600; margin-bottom: 8px;">BLUE SIGNAL</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Yield to Leader</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">A faster kart is behind you. Yield the ideal racing line safely.</p>
+        </div>
+        <!-- Flag 4 -->
+        <div class="glass-card" style="border-left: 5px solid var(--color-primary);">
+          <div style="font-size: 0.8rem; font-family: var(--font-stats); color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">RED SIGNAL</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Stop Immediately</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">Session is halted. Stop your kart immediately where you are on track.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RACING RULES -->
+    <section class="section-container" id="rules" style="background: rgba(10, 10, 10, 0.5);">
+      <h2 class="section-title">CORE CONDUCT RULES</h2>
+      <p class="section-subtitle">Violation of these guidelines will result in automatic power cuts and transponder ban.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="glass-card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 10px;">No Intentionally Bumping</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">This is a precision racing circuit, not bumper cars. Any deliberate contact will trigger remote kart de-acceleration.</p>
+        </div>
+        <div class="glass-card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Helmets Locked</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">DOT-certified helmets must be locked and visor down prior to entering the pit lane. Straps must remain secure.</p>
+        </div>
+        <div class="glass-card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Obey Remote Speeds</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">In case of pit stops or track flags, instructors may remotely cap kart velocity. Comply instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PARENT/GUARDIAN CONSENT -->
+    <!-- 5. DIGITAL SIGNATURE FORM -->
+    <section class="section-container" id="signature-section" style="padding-bottom: 100px;">
+      <div class="booking-wizard">
+        <div class="glass-card hologram-panel" style="padding: 40px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 20px; font-weight: 550; color: var(--color-glow);">DIGITAL SIGNATURE PANEL</h2>
+          
+          <form id="waiver-form" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" required placeholder="John">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" required placeholder="Doe">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Driver Age</label>
+                <input type="number" class="form-control" required placeholder="24">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" required placeholder="johndoe@email.com">
+              </div>
+            </div>
+
+            <!-- Parent Guardian consent -->
+            <div class="form-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="minor-consent">
+                <span>The driver is under 18 years old, and I am the parent/legal guardian signing this release.</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-container">
+                <input type="checkbox" required>
+                <span>I have read and agree to all safety protocols, flags meanings, and kart track regulations.</span>
+              </label>
+            </div>
+
+            <!-- Signature pad canvas -->
+            <div class="form-group">
+              <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+                <span>Sign Below (Touch / Drag Mouse)</span>
+                <button type="button" id="clear-signature-btn" style="background: none; border: none; color: var(--color-glow); text-transform: uppercase; font-size: 0.75rem; font-family: var(--font-stats); cursor: pointer !important;">Clear Canvas</button>
+              </label>
+              <canvas class="sig-canvas"></canvas>
+            </div>
+
+            <div style="text-align: right; margin-top: 10px;">
+              <!-- 6. Confirmation CTA -->
+              <button type="submit" class="btn-cta btn-primary pulse-anim" style="padding: 12px 40px;">SUBMIT DIGITAL WAIVER</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 24 24">
+            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+          </svg>
+          <span class="logo-text">GO-KART RACING</span>
+        </a>
+        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
+      </div>
+      <div class="footer-col">
+        <h4>RACING HOURS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><span class="font-telemetry">MON - THU:</span> 12:00 PM - 10:00 PM</li>
+          <li class="footer-link"><span class="font-telemetry">FRI - SAT:</span> 10:00 AM - Midnight</li>
+          <li class="footer-link"><span class="font-telemetry">SUNDAY:</span> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="track.html">Track Layouts</a></li>
+          <li class="footer-link"><a href="packages.html">Party & Events</a></li>
+          <li class="footer-link"><a href="league.html">Racing League</a></li>
+          <li class="footer-link"><a href="waiver.html">Safety Waiver</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT INFO</h4>
+        <ul class="footer-links">
+          <li class="footer-link">100 Speedway Blvd, Racing City</li>
+          <li class="footer-link">Phone: +1 (555) 722-3787</li>
+          <li class="footer-link">Email: race@gokartracing.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
+      <div>
+        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
+        <a href="register.html" class="helper-link">Register Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Binding -->
+  <script src="js/main.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/router.js"></script>
+
+  <!-- Form submit handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initWaiverSubmit();
+    });
+
+    window.addEventListener('popstate', initWaiverSubmit);
+
+    function initWaiverSubmit() {
+      const canvas = document.querySelector('.sig-canvas');
+      if (canvas && window.initSignaturePad) {
+        window.initSignaturePad(canvas);
+      }
+
+      const form = document.getElementById('waiver-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Basic canvas check
+          const blank = document.createElement('canvas');
+          blank.width = canvas.width;
+          blank.height = canvas.height;
+          if (canvas.toDataURL() === blank.toDataURL()) {
+            alert("Digital signature is required to authorize the safety waiver.");
+            return;
+          }
+
+          // Show confirmation
+          alert("Waiver submitted successfully! Telemetry linked to your email profile.");
+          window.location.href = "index.html";
+        });
+      }
+    }
+  </script>
+</body>
+</html>
