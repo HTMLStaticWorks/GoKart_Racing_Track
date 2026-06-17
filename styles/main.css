@@ -57,6 +57,12 @@ body, body * {
   cursor: none; /* Hide default cursor inside the body content */
 }
 
+/* Restore default cursor when near scrollbar or when required for system navigation */
+body.show-default-cursor,
+body.show-default-cursor * {
+  cursor: auto !important;
+}
+
 /* Re-allow default cursors for text inputs/textareas to maintain usability */
 input, textarea, select {
   cursor: text;

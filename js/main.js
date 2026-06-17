@@ -125,6 +125,18 @@ function initGoKartCursor() {
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    
+    // Show default cursor near the scrollbar edges to allow scrollbar dragging
+    const isRTL = document.body.getAttribute('dir') === 'rtl';
+    const isNearScrollbar = isRTL ? (e.clientX <= 22) : (e.clientX >= window.innerWidth - 22);
+    
+    if (isNearScrollbar) {
+      document.body.classList.add('show-default-cursor');
+      cursor.style.opacity = '0';
+    } else {
+      document.body.classList.remove('show-default-cursor');
+      cursor.style.opacity = '1';
+    }
   });
 
   // Track hover elements (links, buttons, interactive cards)
