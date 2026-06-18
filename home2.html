@@ -1,25 +1,29 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go-Kart Racing Track | Premium Motorsports Experience</title>
-  <meta name="description" content="Enter the premium realm of high-performance go-kart racing. Immersive VIP lounge access, precision telemetry, and elite leaderboard competition.">
-  
+  <meta name="description"
+    content="Enter the premium realm of high-performance go-kart racing. Immersive VIP lounge access, precision telemetry, and elite leaderboard competition.">
+
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="styles/main.css">
-  
+
   <!-- GSAP & Plugins (ScrollTrigger) CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  
+
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
+
   <!-- Lenis Smooth Scroll CDN -->
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 </head>
+
 <body id="page-home2">
 
   <!-- Three.js Canvas for 3D Background Grid & Splines -->
@@ -30,14 +34,16 @@
     <div class="navbar-container">
       <a href="index.html" class="logo-container">
         <svg class="logo-icon" viewBox="0 0 24 24">
-          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+          <path
+            d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" />
         </svg>
         <span class="logo-text">GO-KART RACING</span>
       </a>
-            <nav>
+      <nav>
         <ul class="nav-links">
           <li class="nav-link-item dropdown">
-            <a href="#">Home <span style="font-size: 0.6em; margin-left: 4px; vertical-align: middle;">&#9660;</span></a>
+            <a href="#">Home <span
+                style="font-size: 0.6em; margin-left: 4px; vertical-align: middle;">&#9660;</span></a>
             <ul class="dropdown-menu">
               <li><a href="index.html">Home 1</a></li>
               <li><a href="home2.html">Home 2</a></li>
@@ -55,14 +61,17 @@
       <div class="nav-controls">
         <button id="theme-toggle" class="btn-control" title="Toggle Theme">
           <svg viewBox="0 0 24 24">
-            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+            <path
+              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
           </svg>
         </button>
         <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
           RTL
         </button>
-        <a href="book.html" class="btn-cta btn-secondary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Book Race</a>
-        <a href="login.html" class="btn-cta btn-primary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Login</a>
+        <a href="book.html" class="btn-cta btn-secondary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Book
+          Race</a>
+        <a href="login.html" class="btn-cta btn-primary pulse-anim"
+          style="padding: 8px 16px; font-size: 0.85rem;">Login</a>
       </div>
     </div>
   </header>
@@ -81,9 +90,12 @@
         <img src="assets/images/championship_league.png" alt="Championship Go-Kart Racing">
       </div>
       <div class="hero-content">
-        <div class="font-telemetry" style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Elite Level Destination</div>
+        <div class="font-telemetry"
+          style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">
+          Elite Level Destination</div>
         <h1 class="hero-title" style="font-size: 3.5rem;">CHAMPIONSHIP <br><span>PERFORMANCE</span></h1>
-        <p class="hero-tagline">Enter the premium tier of motorsports entertainment. Custom racing lines, advanced metrics, telemetry-linked sessions, and professional track designs.</p>
+        <p class="hero-tagline">Enter the premium tier of motorsports entertainment. Custom racing lines, advanced
+          metrics, telemetry-linked sessions, and professional track designs.</p>
         <div class="action-btns-group">
           <a href="book.html" class="btn-cta btn-primary">Book VIP Race</a>
           <a href="league.html" class="btn-cta btn-secondary">Championship League</a>
@@ -92,9 +104,12 @@
 
       <!-- Telemetry speedometer display -->
       <div class="telemetry-overlay glass-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--color-glow); padding-bottom: 8px;">
-          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 550;">GRID STANDINGS</span>
-          <span style="font-size: 0.65rem; padding: 2px 6px; background: rgba(0,225,109,0.2); border: 1px solid #00E16D; border-radius: 4px; color: #00E16D; text-transform: uppercase;">Live</span>
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--color-glow); padding-bottom: 8px; width: 100%; gap: 10px;">
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 550;">GRID
+            STANDINGS</span>
+          <span
+            style="font-size: 0.65rem; padding: 2px 6px; background: rgba(0,225,109,0.2); border: 1px solid #00E16D; border-radius: 4px; color: #00E16D; text-transform: uppercase;">Live</span>
         </div>
         <div class="telemetry-row">
           <span class="telemetry-label">Lap Record</span>
@@ -125,8 +140,9 @@
     <!-- 2. RACING MISSION EXPERIENCES -->
     <section class="section-container" id="missions">
       <h2 class="section-title">RACING MISSION EXPERIENCES</h2>
-      <p class="section-subtitle">Take on specialized track missions designed to test steering precision, speed conservation, and stamina.</p>
-      
+      <p class="section-subtitle">Take on specialized track missions designed to test steering precision, speed
+        conservation, and stamina.</p>
+
       <div class="grid-4col">
         <!-- Mission 1 -->
         <div class="glass-card">
@@ -135,7 +151,8 @@
           </div>
           <span class="card-tag">Mission 01</span>
           <h3 class="card-title">Night Endurance</h3>
-          <p class="card-desc">Navigate a dimly lit track with custom headlights under atmospheric lighting. Demands absolute precision.</p>
+          <p class="card-desc">Navigate a dimly lit track with custom headlights under atmospheric lighting. Demands
+            absolute precision.</p>
           <a href="book.html" class="btn-cta btn-secondary" style="margin-top: auto;">Reserve Mission</a>
         </div>
         <!-- Mission 2 -->
@@ -145,7 +162,8 @@
           </div>
           <span class="card-tag">Mission 02</span>
           <h3 class="card-title">Apex Attack</h3>
-          <p class="card-desc">Time-trial racing focusing on clipping corners perfectly. Dynamic indicators score your racing lines.</p>
+          <p class="card-desc">Time-trial racing focusing on clipping corners perfectly. Dynamic indicators score your
+            racing lines.</p>
           <a href="book.html" class="btn-cta btn-secondary" style="margin-top: auto;">Reserve Mission</a>
         </div>
         <!-- Mission 3 -->
@@ -155,7 +173,8 @@
           </div>
           <span class="card-tag">Mission 03</span>
           <h3 class="card-title">Sprint Cup</h3>
-          <p class="card-desc">Short, high-intensity sprint races. Quick launches and overtaking maneuvers are crucial to win.</p>
+          <p class="card-desc">Short, high-intensity sprint races. Quick launches and overtaking maneuvers are crucial
+            to win.</p>
           <a href="book.html" class="btn-cta btn-secondary" style="margin-top: auto;">Reserve Mission</a>
         </div>
         <!-- Mission 4 -->
@@ -165,7 +184,8 @@
           </div>
           <span class="card-tag">Mission 04</span>
           <h3 class="card-title">Grand Prix</h3>
-          <p class="card-desc">Full 20-lap race simulation including grid qualifying, warm-up lap, and live pit lane access.</p>
+          <p class="card-desc">Full 20-lap race simulation including grid qualifying, warm-up lap, and live pit lane
+            access.</p>
           <a href="book.html" class="btn-cta btn-secondary" style="margin-top: auto;">Reserve Mission</a>
         </div>
       </div>
@@ -175,23 +195,34 @@
     <section class="section-container" id="vip-events" style="background: rgba(10, 10, 10, 0.5);">
       <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 320px;">
-          <img src="assets/images/vip_lounge.png" alt="VIP Racing Lounge View" style="width: 100%; border-radius: var(--border-radius-md); box-shadow: var(--glow-shadow);">
+          <img src="assets/images/vip_lounge.png" alt="VIP Racing Lounge View"
+            style="width: 100%; border-radius: var(--border-radius-md); box-shadow: var(--glow-shadow);">
         </div>
         <div style="flex: 1; min-width: 320px;">
-          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase;">Exclusive Hospitality</span>
+          <span class="font-telemetry"
+            style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase;">Exclusive Hospitality</span>
           <h2 class="section-title" style="text-align: left; margin: 10px 0 20px;">VIP RACING & LOUNGES</h2>
-          <p style="color: var(--color-text-muted); margin-bottom: 25px; line-height: 1.6;">Raise the bar for your next corporate event or gathering. Our luxury VIP facilities feature panoramic viewpoints overlooking the starting grids, high-definition race visualizers, private dining lounges, and dedicated event instructors.</p>
+          <p style="color: var(--color-text-muted); margin-bottom: 25px; line-height: 1.6;">Raise the bar for your next
+            corporate event or gathering. Our luxury VIP facilities feature panoramic viewpoints overlooking the
+            starting grids, high-definition race visualizers, private dining lounges, and dedicated event instructors.
+          </p>
           <ul class="feature-list" style="margin-bottom: 35px;">
             <li class="feature-item">
-              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <svg class="feature-icon" viewBox="0 0 24 24">
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
               <span>Fully-catered hospitality suites overlooking the track apexes</span>
             </li>
             <li class="feature-item">
-              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <svg class="feature-icon" viewBox="0 0 24 24">
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
               <span>Personal telemetry coaches advising on steering mechanics</span>
             </li>
             <li class="feature-item">
-              <svg class="feature-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <svg class="feature-icon" viewBox="0 0 24 24">
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
               <span>Exclusive grid pass and podium champagne spray access</span>
             </li>
           </ul>
@@ -204,23 +235,32 @@
     <section class="section-container" id="track-stats">
       <h2 class="section-title">CIRCUIT STATISTICS</h2>
       <p class="section-subtitle">A technical overview of our premium professional-grade racing infrastructure.</p>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center;">
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center;">
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">12</div>
-          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Challenging Apex Turns</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">12+
+          </div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">
+            Challenging Apex Turns</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">600M</div>
-          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Longest Straightaway Run</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">600M+
+          </div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">
+            Longest Straightaway Run</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">2.4G</div>
-          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Max Lateral Force</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">2.4G+
+          </div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">
+            Max Lateral Force</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">32.14s</div>
-          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Current Track Lap Record</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">32.14s+
+          </div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">
+            Current Track Lap Record</div>
         </div>
       </div>
     </section>
@@ -228,8 +268,9 @@
     <!-- 5. RACING LEADERBOARD PREVIEW -->
     <section class="section-container" id="leaderboard" style="background: rgba(10, 10, 10, 0.5);">
       <h2 class="section-title">TOP LAP RECORDS</h2>
-      <p class="section-subtitle">Real-time leaderboard standings. Log in to register your kart transponder and trace lap timings.</p>
-      
+      <p class="section-subtitle">Real-time leaderboard standings. Log in to register your kart transponder and trace
+        lap timings.</p>
+
       <div class="glass-card" style="max-width: 800px; margin: 0 auto; padding: 20px;">
         <div class="ranking-table-container">
           <table class="ranking-table">
@@ -280,10 +321,14 @@
 
     <!-- 6. PREMIUM CTA SECTION -->
     <section class="section-container" style="padding-bottom: 100px;">
-      <div class="glass-card hologram-panel" style="padding: 60px 40px; text-align: center; border-radius: var(--border-radius-lg);">
-        <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Next level simulation</span>
+      <div class="glass-card hologram-panel"
+        style="padding: 60px 40px; text-align: center; border-radius: var(--border-radius-lg);">
+        <span class="font-telemetry"
+          style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Next
+          level simulation</span>
         <h2 style="font-size: 2.2rem; margin: 10px 0 15px;">SECURE YOUR GRID POSITION</h2>
-        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">High-demand weekend slots fill quickly. Select your race type, configure custom safety wavers, and schedule your track time slots online.</p>
+        <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">High-demand weekend slots fill
+          quickly. Select your race type, configure custom safety wavers, and schedule your track time slots online.</p>
         <div class="action-btns-group center">
           <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Slot</a>
           <a href="waiver.html" class="btn-cta btn-secondary">Fill Safety Waiver</a>
@@ -299,27 +344,50 @@
       <div class="footer-col">
         <a href="index.html" class="logo-container">
           <svg class="logo-icon" viewBox="0 0 24 24">
-            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+            <path
+              d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" />
           </svg>
           <span class="logo-text">GO-KART RACING</span>
         </a>
-        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
-        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: flex-start;">
+        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic
+          telemetry, and realistic go-karting experiences.</p>
+        <div class="footer-socials"
+          style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: flex-start;">
           <!-- Instagram -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m5.3-3.3a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;"
+            onmouseover="this.style.color='var(--color-primary)'"
+            onmouseout="this.style.color='var(--color-text-muted)'">
+            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24">
+              <path
+                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m5.3-3.3a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z" />
+            </svg>
           </a>
           <!-- Facebook -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;"
+            onmouseover="this.style.color='var(--color-primary)'"
+            onmouseout="this.style.color='var(--color-text-muted)'">
+            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24">
+              <path
+                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+            </svg>
           </a>
           <!-- X (Twitter) -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;"
+            onmouseover="this.style.color='var(--color-primary)'"
+            onmouseout="this.style.color='var(--color-text-muted)'">
+            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
           <!-- YouTube -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 28px; height: 28px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21.582 6.186a2.6 2.6 0 0 0-1.83-1.83C18.138 3.92 12 3.92 12 3.92s-6.138 0-7.752.436a2.6 2.6 0 0 0-1.83 1.83C2 7.8 2 12 2 12s0 4.2.418 5.814a2.6 2.6 0 0 0 1.83 1.83C5.862 20.08 12 20.08 12 20.08s6.138 0 7.752-.436a2.6 2.6 0 0 0 1.83-1.83C22 16.2 22 12 22 12s0-4.2-.418-5.814zM9.998 15.428v-6.856L15.93 12z"/></svg>
+          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;"
+            onmouseover="this.style.color='var(--color-primary)'"
+            onmouseout="this.style.color='var(--color-text-muted)'">
+            <svg style="width: 28px; height: 28px; fill: currentColor;" viewBox="0 0 24 24">
+              <path
+                d="M21.582 6.186a2.6 2.6 0 0 0-1.83-1.83C18.138 3.92 12 3.92 12 3.92s-6.138 0-7.752.436a2.6 2.6 0 0 0-1.83 1.83C2 7.8 2 12 2 12s0 4.2.418 5.814a2.6 2.6 0 0 0 1.83 1.83C5.862 20.08 12 20.08 12 20.08s6.138 0 7.752-.436a2.6 2.6 0 0 0 1.83-1.83C22 16.2 22 12 22 12s0-4.2-.418-5.814zM9.998 15.428v-6.856L15.93 12z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -362,6 +430,5 @@
   <script src="js/telemetry.js"></script>
   <script src="js/router.js"></script>
 </body>
+
 </html>
-
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
@@ -114,96 +114,62 @@
       <div class="login-card hologram-panel" style="max-width: 480px;">
         <div class="login-card-header" style="margin-bottom: 25px;">
           <!-- Logo -->
-          <a href="index.html" class="logo-container" style="cursor: pointer !important;">
+          <a href="index.html" class="logo-container" style="cursor: pointer !important; justify-content: center;">
             <svg class="logo-icon" viewBox="0 0 24 24" style="width: 48px; height: 48px;">
               <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
             </svg>
+            <span class="logo-text" style="font-size: 1.6rem;">GO-KART RACING</span>
           </a>
           <h2 style="font-size: 1.4rem; font-weight: 550; color: var(--color-glow); margin-top: 10px;">CREATING RACER PROFILE</h2>
           
-          <!-- Wizard step indicators -->
-          <div style="display: flex; gap: 8px; margin-top: 10px;" id="onboard-dots">
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-glow);" class="onboard-dot active"></span>
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent);" class="onboard-dot"></span>
-          </div>
         </div>
 
-        <form id="register-form">
-          <!-- ONBOARD STEP 1: Profile -->
-          <div class="register-wizard-step active" id="step-profile">
-
-            <div class="form-group">
-              <label class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="reg-name" required placeholder="Lewis Hamilton">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="reg-email" required placeholder="lewis@grid.com">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Security Password</label>
-              <div class="password-input-wrapper">
-                <input type="password" class="form-control" id="reg-pwd" required placeholder="••••••••">
-                <button type="button" class="password-toggle-btn" title="Toggle visibility">
-                  <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                  </svg>
-                  <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
-                    <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-              <label class="form-label">Confirm Password</label>
-              <div class="password-input-wrapper">
-                <input type="password" class="form-control" id="reg-confirm-pwd" required placeholder="••••••••">
-                <button type="button" class="password-toggle-btn" title="Toggle visibility">
-                  <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                  </svg>
-                  <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
-                    <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button type="button" class="btn-cta btn-primary btn-reg-next" style="width: 100%;">CONTINUE PROTOCOL</button>
+        <form id="register-form" style="display: flex; flex-direction: column; gap: 18px;">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="reg-name" required placeholder="Lewis Hamilton">
           </div>
-
-          <!-- ONBOARD STEP 2: Racing Class selection -->
-          <div class="register-wizard-step" id="step-class">
-            <h3 style="font-size: 1.1rem; font-weight: 550; margin-bottom: 15px;">SELECT RACING DIVISION</h3>
-            
-            <div class="class-select-card selected" id="class-am">
-              <div>
-                <div style="font-weight: 550; font-size: 0.95rem;">Amateur Grid</div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Speeds capped at 30 MPH. Ideal for beginners.</div>
-              </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">AM</span>
-            </div>
-
-            <div class="class-select-card" id="class-semipro">
-              <div>
-                <div style="font-weight: 550; font-size: 0.95rem;">Semi-Pro League</div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Speeds up to 45 MPH. Safety waiver required.</div>
-              </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">SP</span>
-            </div>
-
-            <div class="class-select-card" id="class-pro">
-              <div>
-                <div style="font-weight: 550; font-size: 0.95rem;">Pro Cup Division</div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Uncapped 60+ MPH. Transponder log tracking.</div>
-              </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">PRO</span>
-            </div>
-
-            <div style="display: flex; gap: 15px; margin-top: 10px;">
-              <button type="button" class="btn-cta btn-secondary btn-reg-prev" style="flex: 1;">BACK</button>
-              <button type="submit" class="btn-cta btn-primary pulse-anim" style="flex: 1;">FINALIZE PROFILE</button>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="reg-email" required placeholder="lewis@grid.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Security Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" class="form-control" id="reg-pwd" required placeholder="••••••••">
+              <button type="button" class="password-toggle-btn" title="Toggle visibility">
+                <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+                <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
+                  <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
+                </svg>
+              </button>
             </div>
           </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" class="form-control" id="reg-confirm-pwd" required placeholder="••••••••">
+              <button type="button" class="password-toggle-btn" title="Toggle visibility">
+                <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+                <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
+                  <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="login-row-helper" style="margin-top: 5px;">
+            <label class="checkbox-container">
+              <input type="checkbox" required>
+              <span>I agree to the Terms & Conditions</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-cta btn-primary pulse-anim" style="width: 100%;">FINALIZE PROFILE</button>
         </form>
 
         <div style="margin-top: 25px; text-align: center; font-size: 0.85rem;">
@@ -251,78 +217,18 @@
         pwdToggles.forEach(toggle => window.initPasswordToggle(toggle));
       }
 
-      const steps = document.querySelectorAll('.register-wizard-step');
-      const dots = document.querySelectorAll('.onboard-dot');
-      const nextBtns = document.querySelectorAll('.btn-reg-next');
-      const prevBtns = document.querySelectorAll('.btn-reg-prev');
-      let stepIndex = 0;
-
-      const updateRegWizard = () => {
-        steps.forEach((step, idx) => {
-          step.classList.toggle('active', idx === stepIndex);
-        });
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === stepIndex);
-          dot.style.background = idx === stepIndex ? 'var(--color-glow)' : 'var(--color-accent)';
-        });
-      };
-
-      nextBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Basic validation for Step 1
-          if (stepIndex === 0) {
-            const name = document.getElementById('reg-name').value;
-            const email = document.getElementById('reg-email').value;
-            const pwd = document.getElementById('reg-pwd').value;
-            const confirmPwd = document.getElementById('reg-confirm-pwd').value;
-            if (!name || !email || !pwd || !confirmPwd) {
-              alert("All profile details are required before continuing.");
-              return;
-            }
-            if (pwd !== confirmPwd) {
-              alert("Passwords do not match. Please try again.");
-              return;
-            }
-          }
-          if (stepIndex < steps.length - 1) {
-            stepIndex++;
-            updateRegWizard();
-          }
-        });
-      });
-
-      prevBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (stepIndex > 0) {
-            stepIndex--;
-            updateRegWizard();
-          }
-        });
-      });
-
-      // Class toggler
-      const classCards = document.querySelectorAll('.class-select-card');
-      classCards.forEach(card => {
-        card.addEventListener('click', () => {
-          classCards.forEach(c => c.classList.remove('selected'));
-          card.classList.add('selected');
-        });
-      });
-
-      // Avatar toggler
-      const avatarItems = document.querySelectorAll('.avatar-item');
-      avatarItems.forEach(item => {
-        item.addEventListener('click', () => {
-          avatarItems.forEach(i => i.classList.remove('selected'));
-          item.classList.add('selected');
-        });
-      });
-
-      // Submit handler
       const form = document.getElementById('register-form');
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
+          
+          const pwd = document.getElementById('reg-pwd').value;
+          const confirmPwd = document.getElementById('reg-confirm-pwd').value;
+          if (pwd !== confirmPwd) {
+            alert("Passwords do not match. Please try again.");
+            return;
+          }
+
           alert("Profile registered! Your racing dashboard is now active.");
           window.location.href = "index.html";
         });
