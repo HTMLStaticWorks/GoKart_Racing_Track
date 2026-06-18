@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go-Kart Racing Track | Next-Gen Motorsports Destination</title>
@@ -33,11 +34,12 @@
         </svg>
         <span class="logo-text">GO-KART RACING</span>
       </a>
-      <nav>
+            <nav>
         <ul class="nav-links">
           <li class="nav-link-item dropdown">
-            <a href="index.html">Home 1</a>
+            <a href="#">Home <span style="font-size: 0.6em; margin-left: 4px; vertical-align: middle;">&#9660;</span></a>
             <ul class="dropdown-menu">
+              <li><a href="index.html">Home 1</a></li>
               <li><a href="home2.html">Home 2</a></li>
             </ul>
           </li>
@@ -46,7 +48,6 @@
           <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
           <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
           <li class="nav-link-item"><a href="league.html">Racing League</a></li>
-          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
           <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
           <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -60,7 +61,8 @@
         <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
           RTL
         </button>
-        <a href="login.html" class="btn-cta btn-primary pulse-anim">Login</a>
+        <a href="book.html" class="btn-cta btn-secondary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Book Race</a>
+        <a href="login.html" class="btn-cta btn-primary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Login</a>
       </div>
     </div>
   </header>
@@ -89,7 +91,7 @@
         </div>
         <h1 class="hero-title">UNCAGE THE <br><span>SPEED DEMON</span></h1>
         <p class="hero-tagline">Welcome to the ultimate next-generation racing destination. Push boundaries with electric torque, dynamic tracks, and premium high-speed competition.</p>
-        <div style="display: flex; gap: 20px;">
+        <div class="action-btns-group">
           <a href="book.html" class="btn-cta btn-primary">Book Your Race</a>
           <a href="league.html" class="btn-cta btn-secondary">Join Racing League</a>
         </div>
@@ -98,7 +100,7 @@
       <!-- Hero Live Telemetry Overlay -->
       <div class="telemetry-overlay glass-card">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--color-glow); padding-bottom: 8px;">
-          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 600;">LIVE TELEMETRY</span>
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 550;">LIVE TELEMETRY</span>
           <span style="font-size: 0.65rem; padding: 2px 6px; background: rgba(0,225,109,0.2); border: 1px solid #00E16D; border-radius: 4px; color: #00E16D; text-transform: uppercase;">Active</span>
         </div>
         <div class="telemetry-row">
@@ -113,8 +115,8 @@
         <!-- Throttle & Brake visual meters -->
         <div style="margin-bottom: 15px;">
           <div style="display: flex; justify-content: space-between; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">
-            <span>Throttle</span>
-            <span id="telemetry-throttle" style="color: #00E16D; font-weight: 600;">88%</span>
+            <span class="telemetry-label">Throttle</span>
+            <span id="telemetry-throttle" style="color: #00E16D; font-weight: 550;">88%</span>
           </div>
           <div style="width: 100%; height: 4px; background: #222; border-radius: 2px;">
             <div id="telemetry-throttle-bar" style="width: 88%; height: 100%; background: #00E16D; border-radius: 2px; transition: width 0.3s ease;"></div>
@@ -122,8 +124,8 @@
         </div>
         <div style="margin-bottom: 20px;">
           <div style="display: flex; justify-content: space-between; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">
-            <span>Brake Pressure</span>
-            <span id="telemetry-brake" style="color: var(--color-primary); font-weight: 600;">5%</span>
+            <span class="telemetry-label">Brake Pressure</span>
+            <span id="telemetry-brake" style="color: var(--color-primary); font-weight: 550;">5%</span>
           </div>
           <div style="width: 100%; height: 4px; background: #222; border-radius: 2px;">
             <div id="telemetry-brake-bar" style="width: 5%; height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.3s ease;"></div>
@@ -315,11 +317,11 @@
           
           <div style="display: flex; gap: 30px; margin-bottom: 30px;">
             <div>
-              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 700; line-height: 1;">0-45<span style="font-size: 1.2rem;">MPH</span></div>
+              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 580; line-height: 1;">0-45<span style="font-size: 1.2rem;">MPH</span></div>
               <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 5px;">In 3.2 Seconds</div>
             </div>
             <div style="border-left: 1px solid var(--color-glass-border); padding-left: 30px;">
-              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 700; line-height: 1;">2.5G</div>
+              <div class="font-telemetry" style="font-size: 2.2rem; color: var(--color-primary); font-weight: 580; line-height: 1;">2.5G</div>
               <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 5px;">Lateral Acceleration</div>
             </div>
           </div>
@@ -343,7 +345,7 @@
           </div>
           <p class="card-desc" style="font-style: italic;">"The instant torque of the electric karts is absolutely crazy. The indoor track feels like a video game. I've already signed up for the competitive league!"</p>
           <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
-            <div style="font-weight: 600; font-size: 0.95rem;">Marcus Vance</div>
+            <div style="font-weight: 550; font-size: 0.95rem;">Marcus Vance</div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">League Racer</div>
           </div>
         </div>
@@ -354,7 +356,7 @@
           </div>
           <p class="card-desc" style="font-style: italic;">"Hosted my son's 12th birthday party here. The staff took safety seriously, the digital leaderboards kept the kids excited, and they had a blast!"</p>
           <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
-            <div style="font-weight: 600; font-size: 0.95rem;">Sarah Connor</div>
+            <div style="font-weight: 550; font-size: 0.95rem;">Sarah Connor</div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">Parent</div>
           </div>
         </div>
@@ -365,7 +367,7 @@
           </div>
           <p class="card-desc" style="font-style: italic;">"Outstanding corporate event. We ran a mini Grand Prix, had live telemetry on the lounge TVs, and finished with a champagne podium. Unbelievable experience!"</p>
           <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
-            <div style="font-weight: 600; font-size: 0.95rem;">David Chen</div>
+            <div style="font-weight: 550; font-size: 0.95rem;">David Chen</div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">CTO, DevCorp</div>
           </div>
         </div>
@@ -376,7 +378,7 @@
           </div>
           <p class="card-desc" style="font-style: italic;">"The best go-kart track I've ever visited. The track layout is highly technical and the karts are insanely fast. Highly recommended!"</p>
           <div style="margin-top: auto; display: flex; align-items: center; gap: 12px;">
-            <div style="font-weight: 600; font-size: 0.95rem;">Elena Rodriguez</div>
+            <div style="font-weight: 550; font-size: 0.95rem;">Elena Rodriguez</div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-stats);">Pro Driver</div>
           </div>
         </div>
@@ -405,7 +407,7 @@
           <span class="logo-text">GO-KART RACING</span>
         </a>
         <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
-        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: center;">
+        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: flex-start;">
           <!-- Instagram -->
           <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
             <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m5.3-3.3a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
@@ -452,12 +454,8 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" style="justify-content: center; text-align: center;">
       <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
-      <div>
-        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
-        <a href="register.html" class="helper-link">Register Profile</a>
-      </div>
     </div>
   </footer>
 
@@ -520,3 +518,5 @@
   </script>
 </body>
 </html>
+
+

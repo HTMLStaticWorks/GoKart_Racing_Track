@@ -37,10 +37,29 @@ function initGlobalControls() {
   }
 
   const updateActiveNavLink = () => {
-    // Relying on CSS-based highlighting via body id and href attributes
+    let currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    // If the path is empty (root), treat it as index.html
+    if (currentPath === '') currentPath = 'index.html';
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (linkHref && linkHref === currentPath) {
+        link.classList.add('active');
+        // If it's inside a dropdown menu, also add active to the parent toggle
+        const parentDropdown = link.closest('.dropdown-menu');
+        if (parentDropdown) {
+          const toggleLink = parentDropdown.previousElementSibling;
+          if (toggleLink) toggleLink.classList.add('active');
+        }
+      } else {
+        link.classList.remove('active');
+      }
+    });
   };
   
   updateActiveNavLink();
+  
   window.addEventListener('popstate', updateActiveNavLink);
   // Expose it for AJAX Router
   window.updateActiveNavLink = updateActiveNavLink;
@@ -89,6 +108,63 @@ function initGlobalControls() {
       
       // Dispatch event to redraw charts/telemetry if direction changes
       window.dispatchEvent(new CustomEvent('dirchanged', { detail: { dir: isRTL ? 'ltr' : 'rtl' } }));
+    });
+  }
+
+  // Mobile Nav Initialization
+  const navbarContainer = document.querySelector('.navbar-container');
+  if (navbarContainer) {
+    const hamburgerBtn = document.createElement('button');
+    hamburgerBtn.className = 'hamburger-btn btn-control';
+    hamburgerBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
+    
+    const mobileWrapper = document.createElement('div');
+    mobileWrapper.className = 'mobile-nav-wrapper';
+    
+    const nav = document.querySelector('nav');
+    const navControls = document.querySelector('.nav-controls');
+    
+    if (nav && navControls) {
+      mobileWrapper.appendChild(nav);
+      mobileWrapper.appendChild(navControls);
+      
+      const logo = document.querySelector('.logo-container');
+      if (logo && logo.nextSibling) {
+        navbarContainer.insertBefore(mobileWrapper, logo.nextSibling);
+      } else {
+        navbarContainer.appendChild(mobileWrapper);
+      }
+    }
+    navbarContainer.appendChild(hamburgerBtn);
+
+    hamburgerBtn.addEventListener('click', () => {
+      document.body.classList.toggle('mobile-menu-open');
+      if (document.body.classList.contains('mobile-menu-open')) {
+        hamburgerBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+      } else {
+        hamburgerBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
+      }
+    });
+    
+    // Handle dropdown toggles on mobile
+    const dropdownItems = mobileWrapper.querySelectorAll('.nav-link-item.dropdown');
+    dropdownItems.forEach(item => {
+      const toggleLink = item.querySelector('a');
+      if (toggleLink) {
+        toggleLink.addEventListener('click', (e) => {
+          e.preventDefault(); // Prevent navigating or closing menu
+          item.classList.toggle('open');
+        });
+      }
+    });
+
+    // Close menu when a standard link is clicked
+    const navLinks = mobileWrapper.querySelectorAll('a:not(.dropdown > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('mobile-menu-open');
+        hamburgerBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
+      });
     });
   }
 }

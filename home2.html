@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go-Kart Racing Track | Premium Motorsports Experience</title>
@@ -33,11 +34,12 @@
         </svg>
         <span class="logo-text">GO-KART RACING</span>
       </a>
-      <nav>
+            <nav>
         <ul class="nav-links">
           <li class="nav-link-item dropdown">
-            <a href="index.html">Home 1</a>
+            <a href="#">Home <span style="font-size: 0.6em; margin-left: 4px; vertical-align: middle;">&#9660;</span></a>
             <ul class="dropdown-menu">
+              <li><a href="index.html">Home 1</a></li>
               <li><a href="home2.html">Home 2</a></li>
             </ul>
           </li>
@@ -46,7 +48,6 @@
           <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
           <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
           <li class="nav-link-item"><a href="league.html">Racing League</a></li>
-          <li class="nav-link-item"><a href="book.html">Book Race</a></li>
           <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
           <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -60,7 +61,8 @@
         <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
           RTL
         </button>
-        <a href="login.html" class="btn-cta btn-primary pulse-anim">Login</a>
+        <a href="book.html" class="btn-cta btn-secondary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Book Race</a>
+        <a href="login.html" class="btn-cta btn-primary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Login</a>
       </div>
     </div>
   </header>
@@ -82,7 +84,7 @@
         <div class="font-telemetry" style="color: var(--color-glow); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px;">Elite Level Destination</div>
         <h1 class="hero-title" style="font-size: 3.5rem;">CHAMPIONSHIP <br><span>PERFORMANCE</span></h1>
         <p class="hero-tagline">Enter the premium tier of motorsports entertainment. Custom racing lines, advanced metrics, telemetry-linked sessions, and professional track designs.</p>
-        <div style="display: flex; gap: 20px;">
+        <div class="action-btns-group">
           <a href="book.html" class="btn-cta btn-primary">Book VIP Race</a>
           <a href="league.html" class="btn-cta btn-secondary">Championship League</a>
         </div>
@@ -91,7 +93,7 @@
       <!-- Telemetry speedometer display -->
       <div class="telemetry-overlay glass-card">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid var(--color-glow); padding-bottom: 8px;">
-          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 600;">GRID STANDINGS</span>
+          <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.85rem; font-weight: 550;">GRID STANDINGS</span>
           <span style="font-size: 0.65rem; padding: 2px 6px; background: rgba(0,225,109,0.2); border: 1px solid #00E16D; border-radius: 4px; color: #00E16D; text-transform: uppercase;">Live</span>
         </div>
         <div class="telemetry-row">
@@ -205,19 +207,19 @@
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center;">
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 700;">12</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">12</div>
           <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Challenging Apex Turns</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 700;">600M</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">600M</div>
           <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Longest Straightaway Run</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 700;">2.4G</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">2.4G</div>
           <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Max Lateral Force</div>
         </div>
         <div class="glass-card" style="padding: 40px 20px;">
-          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 700;">32.14s</div>
+          <div class="font-telemetry" style="font-size: 3.2rem; color: var(--color-primary); font-weight: 580;">32.14s</div>
           <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--color-text-muted); margin-top: 10px;">Current Track Lap Record</div>
         </div>
       </div>
@@ -244,31 +246,31 @@
                 <td><span class="rank-badge rank-1">1</span></td>
                 <td style="font-weight: 500;">Christian Horner</td>
                 <td class="font-telemetry">04</td>
-                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 600;">32.540s</td>
+                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 550;">32.540s</td>
               </tr>
               <tr class="ranking-row">
                 <td><span class="rank-badge rank-2">2</span></td>
                 <td style="font-weight: 500;">Lewis Hamilton</td>
                 <td class="font-telemetry">44</td>
-                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 600;">32.720s</td>
+                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 550;">32.720s</td>
               </tr>
               <tr class="ranking-row">
                 <td><span class="rank-badge rank-3">3</span></td>
                 <td style="font-weight: 500;">Max Verstappen</td>
                 <td class="font-telemetry">33</td>
-                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 600;">32.890s</td>
+                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 550;">32.890s</td>
               </tr>
               <tr class="ranking-row">
                 <td><span class="rank-badge">4</span></td>
                 <td style="font-weight: 500;">Lando Norris</td>
                 <td class="font-telemetry">07</td>
-                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 600;">33.150s</td>
+                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 550;">33.150s</td>
               </tr>
               <tr class="ranking-row">
                 <td><span class="rank-badge">5</span></td>
                 <td style="font-weight: 500;">Charles Leclerc</td>
                 <td class="font-telemetry">16</td>
-                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 600;">33.420s</td>
+                <td class="font-telemetry lap-time" style="text-align: right; font-weight: 550;">33.420s</td>
               </tr>
             </tbody>
           </table>
@@ -282,7 +284,7 @@
         <span class="font-telemetry" style="color: var(--color-glow); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Next level simulation</span>
         <h2 style="font-size: 2.2rem; margin: 10px 0 15px;">SECURE YOUR GRID POSITION</h2>
         <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 35px;">High-demand weekend slots fill quickly. Select your race type, configure custom safety wavers, and schedule your track time slots online.</p>
-        <div style="display: flex; gap: 20px; justify-content: center;">
+        <div class="action-btns-group center">
           <a href="book.html" class="btn-cta btn-primary pulse-anim">Book Your Slot</a>
           <a href="waiver.html" class="btn-cta btn-secondary">Fill Safety Waiver</a>
         </div>
@@ -302,7 +304,7 @@
           <span class="logo-text">GO-KART RACING</span>
         </a>
         <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
-        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: center;">
+        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: flex-start;">
           <!-- Instagram -->
           <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
             <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m5.3-3.3a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
@@ -349,12 +351,8 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom" style="justify-content: center; text-align: center;">
       <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
-      <div>
-        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
-        <a href="register.html" class="helper-link">Register Profile</a>
-      </div>
     </div>
   </footer>
 
@@ -365,3 +363,5 @@
   <script src="js/router.js"></script>
 </body>
 </html>
+
+

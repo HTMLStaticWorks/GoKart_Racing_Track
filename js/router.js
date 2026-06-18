@@ -205,6 +205,13 @@ function initPageSpecificBindings() {
   if (sections.length > 0 || document.querySelector('.hero-content')) {
     initScrollAnimations();
   }
+
+  // 8. Fix SVG SMIL animations after AJAX load (Circuit map)
+  const svgMap = document.querySelector('.track-svg-map');
+  if (svgMap) {
+    const clone = svgMap.cloneNode(true);
+    svgMap.parentNode.replaceChild(clone, svgMap);
+  }
 }
 
 /* INTERACTION BINDINGS IMPLEMENTATIONS */

@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go-Kart Racing Track | Racer Registration</title>
@@ -124,25 +125,13 @@
           <div style="display: flex; gap: 8px; margin-top: 10px;" id="onboard-dots">
             <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-glow);" class="onboard-dot active"></span>
             <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent);" class="onboard-dot"></span>
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent);" class="onboard-dot"></span>
           </div>
         </div>
 
         <form id="register-form">
           <!-- ONBOARD STEP 1: Profile -->
           <div class="register-wizard-step active" id="step-profile">
-            <div class="social-login-grid">
-              <button type="button" class="social-btn" title="Sign up with Google">
-                <svg viewBox="0 0 24 24"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.984 0-.743-.08-1.3-.176-1.865l-10.617-.356z"/></svg>
-              </button>
-              <button type="button" class="social-btn" title="Sign up with Apple">
-                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.17.67-2.88 1.48-.62.71-1.16 1.85-1.01 2.96 1.1.09 2.21-.55 2.9-1.38z"/></svg>
-              </button>
-              <button type="button" class="social-btn" title="Sign up with Discord">
-                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011 19.241 19.241 0 0 0 10.74 0 .075.075 0 0 1 .078.01c.12.098.246.195.373.289a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/></svg>
-              </button>
-            </div>
-            <div class="divider-text" style="margin: 10px 0 20px;">Or Grid Email</div>
+
             <div class="form-group">
               <label class="form-label">Full Name</label>
               <input type="text" class="form-control" id="reg-name" required placeholder="Lewis Hamilton">
@@ -151,9 +140,33 @@
               <label class="form-label">Email Address</label>
               <input type="email" class="form-control" id="reg-email" required placeholder="lewis@grid.com">
             </div>
-            <div class="form-group" style="margin-bottom: 20px;">
+            <div class="form-group">
               <label class="form-label">Security Password</label>
-              <input type="password" class="form-control" id="reg-pwd" required placeholder="••••••••">
+              <div class="password-input-wrapper">
+                <input type="password" class="form-control" id="reg-pwd" required placeholder="••••••••">
+                <button type="button" class="password-toggle-btn" title="Toggle visibility">
+                  <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
+                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                  </svg>
+                  <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
+                    <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label">Confirm Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" class="form-control" id="reg-confirm-pwd" required placeholder="••••••••">
+                <button type="button" class="password-toggle-btn" title="Toggle visibility">
+                  <svg class="eye-open" viewBox="0 0 24 24" style="display: block;">
+                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                  </svg>
+                  <svg class="eye-closed" viewBox="0 0 24 24" style="display: none;">
+                    <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.2 2.7-2.78 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.18 2.18C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28A18.82 18.82 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.41-.84l4.83 4.83 1.27-1.27L3.27 3L2 4.27zM12 17c-2.76 0-5-2.24-5-5 0-.74.16-1.42.43-2.05l2.46 2.46c-.03.2-.06.4-.06.59 0 1.66 1.34 3 3 3 .19 0 .39-.03.59-.06l2.46 2.46c-.63.27-1.31.43-2.05.43zm-.12-8.34l3.7 3.7c-.05-.44-.22-.85-.53-1.16-.31-.31-.72-.48-1.16-.53l-2.01-2.01z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
             <button type="button" class="btn-cta btn-primary btn-reg-next" style="width: 100%;">CONTINUE PROTOCOL</button>
           </div>
@@ -164,50 +177,29 @@
             
             <div class="class-select-card selected" id="class-am">
               <div>
-                <div style="font-weight: 600; font-size: 0.95rem;">Amateur Grid</div>
+                <div style="font-weight: 550; font-size: 0.95rem;">Amateur Grid</div>
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">Speeds capped at 30 MPH. Ideal for beginners.</div>
               </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 600;">AM</span>
+              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">AM</span>
             </div>
 
             <div class="class-select-card" id="class-semipro">
               <div>
-                <div style="font-weight: 600; font-size: 0.95rem;">Semi-Pro League</div>
+                <div style="font-weight: 550; font-size: 0.95rem;">Semi-Pro League</div>
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">Speeds up to 45 MPH. Safety waiver required.</div>
               </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 600;">SP</span>
+              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">SP</span>
             </div>
 
             <div class="class-select-card" id="class-pro">
               <div>
-                <div style="font-weight: 600; font-size: 0.95rem;">Pro Cup Division</div>
+                <div style="font-weight: 550; font-size: 0.95rem;">Pro Cup Division</div>
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">Uncapped 60+ MPH. Transponder log tracking.</div>
               </div>
-              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 600;">PRO</span>
+              <span class="font-telemetry" style="color: var(--color-primary); font-weight: 550;">PRO</span>
             </div>
 
             <div style="display: flex; gap: 15px; margin-top: 10px;">
-              <button type="button" class="btn-cta btn-secondary btn-reg-prev" style="flex: 1;">BACK</button>
-              <button type="button" class="btn-cta btn-primary btn-reg-next" style="flex: 1;">CONTINUE</button>
-            </div>
-          </div>
-
-          <!-- ONBOARD STEP 3: Avatar selection -->
-          <div class="register-wizard-step" id="step-avatar">
-            <h3 style="font-size: 1.1rem; font-weight: 550; margin-bottom: 15px;">CHOOSE RACER AVATAR</h3>
-            
-            <div class="avatar-grid">
-              <div class="avatar-item selected" id="av-1">🏎️</div>
-              <div class="avatar-item" id="av-2">🏁</div>
-              <div class="avatar-item" id="av-3">🏆</div>
-              <div class="avatar-item" id="av-4">🔥</div>
-              <div class="avatar-item" id="av-5">⚙️</div>
-              <div class="avatar-item" id="av-6">⚡</div>
-              <div class="avatar-item" id="av-7">🚦</div>
-              <div class="avatar-item" id="av-8">🕶️</div>
-            </div>
-
-            <div style="display: flex; gap: 15px;">
               <button type="button" class="btn-cta btn-secondary btn-reg-prev" style="flex: 1;">BACK</button>
               <button type="submit" class="btn-cta btn-primary pulse-anim" style="flex: 1;">FINALIZE PROFILE</button>
             </div>
@@ -217,6 +209,20 @@
         <div style="margin-top: 25px; text-align: center; font-size: 0.85rem;">
           <span style="color: var(--color-text-muted);">Active Driver?</span>
           <a href="login.html" class="helper-link" style="margin-left: 5px;">Racer Login</a>
+        </div>
+
+        <div class="divider-text" style="margin-top: 25px; margin-bottom: 25px;">Or Register With</div>
+
+        <!-- Social login grid -->
+        <div class="social-login-grid" style="display: flex; justify-content: center; gap: 20px;">
+          <!-- Google -->
+          <button type="button" class="social-btn" title="Sign up with Google" style="flex: 1; max-width: 150px;">
+            <svg viewBox="0 0 24 24"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 6.033 1 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-10.984 0-.743-.08-1.3-.176-1.865l-10.617-.356z"/></svg>
+          </button>
+          <!-- Apple -->
+          <button type="button" class="social-btn" title="Sign up with Apple" style="flex: 1; max-width: 150px;">
+            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.17.67-2.88 1.48-.62.71-1.16 1.85-1.01 2.96 1.1.09 2.21-.55 2.9-1.38z"/></svg>
+          </button>
         </div>
       </div>
 
@@ -239,6 +245,12 @@
     window.addEventListener('popstate', initRegisterWizard);
 
     function initRegisterWizard() {
+      // Setup password visibility toggles
+      const pwdToggles = document.querySelectorAll('.password-toggle-btn');
+      if (pwdToggles.length && window.initPasswordToggle) {
+        pwdToggles.forEach(toggle => window.initPasswordToggle(toggle));
+      }
+
       const steps = document.querySelectorAll('.register-wizard-step');
       const dots = document.querySelectorAll('.onboard-dot');
       const nextBtns = document.querySelectorAll('.btn-reg-next');
@@ -262,8 +274,13 @@
             const name = document.getElementById('reg-name').value;
             const email = document.getElementById('reg-email').value;
             const pwd = document.getElementById('reg-pwd').value;
-            if (!name || !email || !pwd) {
+            const confirmPwd = document.getElementById('reg-confirm-pwd').value;
+            if (!name || !email || !pwd || !confirmPwd) {
               alert("All profile details are required before continuing.");
+              return;
+            }
+            if (pwd !== confirmPwd) {
+              alert("Passwords do not match. Please try again.");
               return;
             }
           }
@@ -314,3 +331,5 @@
   </script>
 </body>
 </html>
+
+

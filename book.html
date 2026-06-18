@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E10600'><path d='M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z'/></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go-Kart Racing Track | Book Your Race Session</title>
@@ -77,21 +78,21 @@
         </svg>
         <span class="logo-text">GO-KART RACING</span>
       </a>
-      <nav>
+            <nav>
         <ul class="nav-links">
           <li class="nav-link-item dropdown">
-            <a href="index.html">Home 1</a>
+            <a href="#">Home <span style="font-size: 0.6em; margin-left: 4px; vertical-align: middle;">&#9660;</span></a>
             <ul class="dropdown-menu">
+              <li><a href="index.html">Home 1</a></li>
               <li><a href="home2.html">Home 2</a></li>
             </ul>
           </li>
+          <li class="nav-link-item"><a href="about.html">About Us</a></li>
+          <li class="nav-link-item"><a href="services.html">Services</a></li>
           <li class="nav-link-item"><a href="track.html">Track Layout</a></li>
           <li class="nav-link-item"><a href="packages.html">Party Packages</a></li>
           <li class="nav-link-item"><a href="league.html">Racing League</a></li>
-          <li class="nav-link-item"><a href="book.html" class="active">Book Race</a></li>
           <li class="nav-link-item"><a href="waiver.html">Safety Waiver</a></li>
-          <li class="nav-link-item"><a href="about.html">About Us</a></li>
-          <li class="nav-link-item"><a href="services.html">Services</a></li>
           <li class="nav-link-item"><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
@@ -104,7 +105,8 @@
         <button id="rtl-toggle" class="btn-control" title="Toggle LTR/RTL">
           RTL
         </button>
-        <a href="login.html" class="btn-cta btn-primary pulse-anim">Login</a>
+        <a href="book.html" class="btn-cta btn-secondary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Book Race</a>
+        <a href="login.html" class="btn-cta btn-primary pulse-anim" style="padding: 8px 16px; font-size: 0.85rem;">Login</a>
       </div>
     </div>
   </header>
@@ -174,7 +176,7 @@
               <p style="font-size: 0.8rem; color: var(--color-text-muted);">Double-seat kart suited for adults driving children.</p>
             </div>
           </div>
-          <div style="text-align: right;">
+          <div class="action-btns-group" style="justify-content: flex-end;">
             <button class="btn-cta btn-primary btn-next-step">Continue</button>
           </div>
         </div>
@@ -210,7 +212,7 @@
             <button class="time-btn">09:30 PM</button>
           </div>
 
-          <div style="display: flex; justify-content: space-between;">
+          <div class="action-btns-group" style="justify-content: space-between;">
             <button class="btn-cta btn-secondary btn-prev-step">Back</button>
             <button class="btn-cta btn-primary btn-next-step">Continue</button>
           </div>
@@ -238,7 +240,7 @@
             </div>
           </div>
 
-          <div style="display: flex; justify-content: space-between;">
+          <div class="action-btns-group" style="justify-content: space-between;">
             <button class="btn-cta btn-secondary btn-prev-step">Back</button>
             <button class="btn-cta btn-primary btn-next-step">Continue</button>
           </div>
@@ -266,12 +268,12 @@
               <span style="font-weight: 500;">Damage Waiver</span>
             </div>
             <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-weight: 600; text-transform: uppercase;">Total Balance</span>
-              <span class="font-telemetry" style="font-size: 1.8rem; color: var(--color-primary); font-weight: 700;">$40.00</span>
+              <span style="font-weight: 550; text-transform: uppercase;">Total Balance</span>
+              <span class="font-telemetry" style="font-size: 1.8rem; color: var(--color-primary); font-weight: 580;">$40.00</span>
             </div>
           </div>
 
-          <div style="display: flex; justify-content: space-between;">
+          <div class="action-btns-group" style="justify-content: space-between;">
             <button class="btn-cta btn-secondary btn-prev-step">Back</button>
             <a href="waiver.html" class="btn-cta btn-primary pulse-anim">Proceed to Safety Waiver</a>
           </div>
@@ -282,72 +284,7 @@
 
   </main>
 
-  <!-- Global Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a href="index.html" class="logo-container">
-          <svg class="logo-icon" viewBox="0 0 24 24">
-            <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
-          </svg>
-          <span class="logo-text">GO-KART RACING</span>
-        </a>
-        <p class="footer-col-desc">Next-generation premium racing destination with cinematic visualizers, dynamic telemetry, and realistic go-karting experiences.</p>
-        <div class="footer-socials" style="display: flex; gap: 15px; margin-top: 20px; align-items: center; justify-content: center;">
-          <!-- Instagram -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m5.3-3.3a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
-          </a>
-          <!-- Facebook -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          </a>
-          <!-- X (Twitter) -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <!-- YouTube -->
-          <a href="#" style="color: var(--color-text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-muted)'">
-            <svg style="width: 28px; height: 28px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21.582 6.186a2.6 2.6 0 0 0-1.83-1.83C18.138 3.92 12 3.92 12 3.92s-6.138 0-7.752.436a2.6 2.6 0 0 0-1.83 1.83C2 7.8 2 12 2 12s0 4.2.418 5.814a2.6 2.6 0 0 0 1.83 1.83C5.862 20.08 12 20.08 12 20.08s6.138 0 7.752-.436a2.6 2.6 0 0 0 1.83-1.83C22 16.2 22 12 22 12s0-4.2-.418-5.814zM9.998 15.428v-6.856L15.93 12z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>RACING HOURS</h4>
-        <ul class="footer-links">
-          <li class="footer-link"><span class="font-telemetry">MON - THU:</span> 12:00 PM - 10:00 PM</li>
-          <li class="footer-link"><span class="font-telemetry">FRI - SAT:</span> 10:00 AM - Midnight</li>
-          <li class="footer-link"><span class="font-telemetry">SUNDAY:</span> 10:00 AM - 10:00 PM</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>QUICK LINKS</h4>
-        <ul class="footer-links">
-          <li class="footer-link"><a href="track.html">Track Layouts</a></li>
-          <li class="footer-link"><a href="packages.html">Party & Events</a></li>
-          <li class="footer-link"><a href="league.html">Racing League</a></li>
-          <li class="footer-link"><a href="waiver.html">Safety Waiver</a></li>
-          <li class="footer-link"><a href="about.html">About Us</a></li>
-          <li class="footer-link"><a href="services.html">Services</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>CONTACT INFO</h4>
-        <ul class="footer-links">
-          <li class="footer-link">100 Speedway Blvd, Racing City</li>
-          <li class="footer-link">Phone: +1 (555) 722-3787</li>
-          <li class="footer-link">Email: race@gokartracing.com</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Go-Kart Racing Track. All rights reserved.</p>
-      <div>
-        <a href="login.html" class="helper-link" style="margin-right: 20px;">Racer Login</a>
-        <a href="register.html" class="helper-link">Register Profile</a>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Scripts Binding -->
   <script src="js/main.js"></script>
@@ -390,3 +327,5 @@
   </script>
 </body>
 </html>
+
+
