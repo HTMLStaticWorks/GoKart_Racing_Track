@@ -415,6 +415,7 @@ body.light-theme header.shrink {
   text-transform: uppercase;
   position: relative;
   padding: 8px 0;
+  white-space: nowrap;
   transition: var(--transition-fast);
 }
 
@@ -489,6 +490,7 @@ body.light-theme header.shrink {
   font-size: 0.85rem;
   text-transform: uppercase;
   font-weight: 500;
+  white-space: nowrap;
   transition: var(--transition-fast);
   text-align: center;
 }
