@@ -86,14 +86,27 @@ body.light-theme .hero-section .telemetry-label {
 
 body.light-theme .section-title,
 body.light-theme .section-subtitle {
-  color: #FF6600 !important;
+  color: #000000 !important;
 }
 
 /* Fix visibility on all dark sections globally in bright mode */
 body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] {
-  --color-text: #FF6600;
-  --color-text-muted: #FF8833;
-  color: var(--color-text);
+  background: #ffffff !important;
+  --color-text: #000000;
+  --color-text-muted: #333333;
+  color: #000000 !important;
+}
+
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] h1,
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] h2,
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] h3,
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] .section-title {
+  color: #000000 !important;
+}
+
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] p,
+body.light-theme section[style*="rgba(10, 10, 10, 0.5)"] li {
+  color: #000000 !important;
 }
 
 /* Force all footer text to be black in bright mode */
